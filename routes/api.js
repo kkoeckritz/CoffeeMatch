@@ -1,24 +1,38 @@
 var axios = require("axios");
 const router = require("express").Router();
 
-router.route("/collections").get((req, res) => {
-
+router.route("/shopify-collections").get((req, res) => {
+  let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json`;
+  axios.get(url)
+    .then(response => {
+      console.log(response);
+      return res.json(response.data.custom_collections.map(collection => (
+        {
+          title: collection.title,
+          handle: collection.handle
+        }
+      ))
+    )})
+    .catch(error => res.send(error));
 });
 
 /**
  * Get the collection ID field for a given collection name
- * @param {string} collectionName - the name of the collection to look up
+ * @param {string} collectionHandle - the handle of the collection to look up
  * @returns {Promise} - Promise object with return value of ID integer
  */
-function getCollectionIdFromName(collectionName) {
-  let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?title=${collectionName}`;
+function getCollectionIdFromName(collectionHandle) {
+  let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?title=${collectionHandle}`;
   return new Promise((resolve, reject) => {
     axios.get(url).then((response) => {
       if (response.data.custom_collections.length === 1) {
         resolve(response.data.custom_collections[0].id);
       }
       else {
-        reject("Collection supplied is not specific enough");
+        response.data.custom_collections.map(collection => (
+          console.log(collection.title)
+        ));
+        reject("Collection supplied is not specific enough, multiple found");
       }
     });
   });
@@ -61,6 +75,32 @@ router.route("/products/:collection").get((req, res) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
         res.json(products);
+      });
+    });
+  })
+  .catch((error) => {
+    console.log(".catch:");
+    console.log(error);
+    res.send(error);
+  });
+});
+
+/**
+ * Route for getting products associated with a collection and tag
+ * Gets all products for given collection, then does some string
+ * manipulation to check for tags... a bit expensive, but necessary
+ * for getting the matches due to shopify limitations
+ */
+router.route("/products/:collection/:tag").get((req, res) => {
+  getCollectionIdFromName(req.params.collection).then((id) => {
+    getCollectsInCollection(id).then((collects) => {
+      getProductsFromCollects(collects).then(products => {
+        res.json(products.filter(product => (
+          product.tags                         // tags are CSV strings
+            .split(",")                        // need to split by comma
+            .map(tag => tag.trim())            // and trim
+            .includes(req.params.tag)          // before checking if tag present
+        )));
       });
     });
   })
