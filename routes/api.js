@@ -1,6 +1,10 @@
 var axios = require("axios");
 const router = require("express").Router();
 
+/**
+ * Route for getting collection information from shopify.
+ * To be used in the CMS for adding collections to the questionnaire
+ */
 router.route("/shopify-collections").get((req, res) => {
   let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json`;
   axios.get(url)
@@ -14,6 +18,13 @@ router.route("/shopify-collections").get((req, res) => {
       ))
     )})
     .catch(error => res.send(error));
+});
+
+/**
+ * Route for getting the collections used in the questionnaire.
+ */
+router.route("/questionnaire-collections").get((req, res) => {
+
 });
 
 /**
