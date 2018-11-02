@@ -1,1 +1,1 @@
-export { default } from "./QuestMain"
+export { default } from "./QuestMain";
