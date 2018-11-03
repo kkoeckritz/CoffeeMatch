@@ -5,6 +5,7 @@ import QuestMain from './components/QuestMain'
 import Header from './components/Header'
 import GetStarted from './components/GetStarted'
 import Questionaire from './components/Questionaire'
+import Products from './components/Products'
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
     <Questionaire />
 
     <QuestMain />
+    <br />
+    <br />
+    <hr />
+    <Products />
     </div>
   );
 }

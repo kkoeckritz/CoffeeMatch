@@ -10,9 +10,9 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit,
+    height: 300,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 200,
   },
 });
 
@@ -44,6 +44,12 @@ function Questionaire(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={8}>
+        <Grid container item xs={12} spacing={24}>
+          <FormRow classes={classes} />
+        </Grid>
+        <Grid container item xs={12} spacing={24}>
+          <FormRow classes={classes} />
+        </Grid>
         <Grid container item xs={12} spacing={24}>
           <FormRow classes={classes} />
         </Grid>
