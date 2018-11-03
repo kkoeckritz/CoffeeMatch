@@ -1,6 +1,6 @@
 module.exports = {
-  collection: require("./collections"),
-  collection: require("./tags"),
-  collection: require("./users"),
-  collection: require("./results"),
+  Collection: require("./collections"),
+  Tag: require("./tags"),
+  User: require("./users"),
+  Result: require("./results"),
 };
