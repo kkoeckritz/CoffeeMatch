@@ -9,7 +9,7 @@ mongoose.connect(
 var productSeed = [
   {
     name: "BRAZIL, NELSON RIBEIRO & LUCA ALLEGRO, NATURAL PROCESS",
-    collection_name: "Rare & Reserve",
+    collection_handle: "rarereserve",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/brazil-fazenda-floresta-chapada-diamantina",
     tags: [
       "chocolate",
@@ -21,7 +21,7 @@ var productSeed = [
   },
   {
     name: "COLOMBIA, LA ILUSION, ROSEVAL ORTIZ, NATURAL PROCESS",
-    collection_name: "Rare & Reserve",
+    collection_handle: "rarereserve",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/colombia-la-ilusion",
     tags: [
       "chocolate",
@@ -33,7 +33,7 @@ var productSeed = [
   },
   {
     name: "GUATEMALA, EL LIMONAR, HUGO CHÁVEZ MENDEZ, WASHED PROCESS",
-    collection_name: "Roaster's Selection",
+    collection_handle: "roastersselection",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/guatemala-el-limonar-hugo-chavez-mendez-washed-process",
     tags: [
       "fruit",
@@ -42,7 +42,7 @@ var productSeed = [
   },
   {
     name: "DECAF, ETHIOPIA, GUJI, NATURAL PROCESS",
-    collection_name: "Roaster's Selection",
+    collection_handle: "roastersselection",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/decaf-ethiopia-guji-natural-process",
     tags: [
       "fruit",
@@ -53,7 +53,7 @@ var productSeed = [
   },
   {
     name: "SUMATRA BENER MERIAH",
-    collection_name: "Casual Coffee",
+    collection_handle: "casualcoffee",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/sumatra-bener-meriah",
     tags: [
       "chocolate",
@@ -63,7 +63,7 @@ var productSeed = [
   },
   {
     name: "COSTA RICA, EL DIAMANTE, CARLOS FERNANDEZ MORERA, ANAEROBIC PROCESS",
-    collection_name: "Casual Coffee",
+    collection_handle: "casualcoffee",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/costa-rica-san-rafael-carlos-fernandez-morera-anaerobically-washed",
     tags: [
       "spice",

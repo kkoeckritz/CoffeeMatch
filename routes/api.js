@@ -26,7 +26,12 @@ router.route("/shopify-collections").get((req, res) => {
  * Route for getting the collections used in the questionnaire.
  */
 router.route("/questionnaire-collections").get((req, res) => {
-
+  console.log("/questionnaire-collections");
+  db.Collection.find({})
+    .then(collections => {
+      console.log(collections);
+      res.json(collections)
+    });
 });
 
 /**
@@ -138,16 +143,36 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
   var collection = req.params.collection.replace("+", " ");
   console.log(collection);
   //db.Product.find({ tags: { $all: lookup }, collection: collection })
-  db.Product.find({ collection_name: collection , tags: { $all: lookup } })
+  db.Product.find({ collection_handle: collection , tags: { $all: lookup } })
     .then(productList => {
       console.log(productList);
       res.json(productList)
     });
 });
 
+router.route("/tags/:collection/:caffeinated").get((req, res) => {
+  var collection = req.params.collection.replace("+", " ");
+  let query = { collection_handle: collection };
+  if (req.params.caffeinated === "decaf") {
+    query = { collection_handle: collection, tags: { $all: ["decaf"] } };
+  }
+  db.Product.find(query)
+  .then(productList => {
+    let tagSet = new Set();
+    productList.map(product => {
+      product.tags.map(tag => (  // split product tags string by comma
+        tagSet.add(tag)            // add tag from tags string to set of tags
+      ))
+    })
+    console.log(Array.from(tagSet));
+    res.json(Array.from(tagSet));
+  });
+});
+
 /**
  * Route for getting of the product tags associated with a given collection
  */
+/*
 router.route("/tags/:collection").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
@@ -168,5 +193,6 @@ router.route("/tags/:collection").get((req, res) => {
     res.send(error);
   });
 });
+*/
 
 module.exports = router;
