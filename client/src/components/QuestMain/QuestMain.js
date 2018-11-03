@@ -3,10 +3,10 @@ import React from "react";
 
 const QuestMain = props => 
     <div className="quest_main">
-        <main className="container">
+        <main className="container-fluid center">
             <div className="row">
                 <div className="col m12">
-                    <div className="questions">
+                    <div className="questions center">
                         <div className="card-content white-text">
                             <span className="card-title center">
                             
@@ -16,24 +16,34 @@ const QuestMain = props =>
                        
                         <br />
                         <br />
-                        <div className="card-action">
-                            <div class="row">
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Decaf & Pointless</button>
-                                    </div>                                        </div>
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Smooth & Mellow</button>
-                                    </div>          
-                                </div>
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Bold & Adventurous</button>
-                                    </div>          
-                                </div>
-                            </div>
-                        </div>
+
+                        <div className="container questGrid center">
+					<figure className="effect-ruby">
+						<img src="https://burst.shopifycdn.com/photos/pouring-hot-coffee_373x@2x.progressive.jpg" alt="img13"/>
+						<figcaption>
+							<h2>DECAF & <span>POINTLESS</span></h2>
+							<p>Slow your roll</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure className="effect-ruby">
+						<img src="https://www.maxpixel.net/static/photo/2x/Aroma-Beans-Coffee-Beans-Roasted-Coffee-Caffeine-2318307.jpg" alt="img14"/>
+						<figcaption>
+							<h2>SMOOTH & <span>MELLOW</span></h2>
+							<p>Safe decision.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+                    <figure className="effect-ruby">
+						<img src="https://www.goodfreephotos.com/albums/food/cup-of-coffee-on-table.jpg" alt="img14"/>
+						<figcaption>
+							<h2>BOLD & <span>ADVENTUROUS</span></h2>
+							<p>Ohh your'e courageous!</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
                     </div>
                 </div>
             </div>
