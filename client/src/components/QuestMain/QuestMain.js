@@ -9,29 +9,23 @@ const QuestMain = props =>
                     <div className="questions">
                         <div className="card-content white-text">
                             <span className="card-title center">
-                            
-                                <h3>Tell me, what's your style?</h3>
+                                <h3>{props.cur_quest}</h3>
                             </span>
                         </div>
-                       
                         <br />
                         <br />
                         <div className="card-action">
                             <div class="row">
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Decaf & Pointless</button>
-                                    </div>                                        </div>
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Smooth & Mellow</button>
-                                    </div>          
-                                </div>
-                                <div className="col s4">
-                                    <div class="center">
-                                        <button class="btn-large red darken-4">Bold & Adventurous</button>
-                                    </div>          
-                                </div>
+                            {
+                                props.cur_ans.map(ans => (
+                        
+                                    <div className="col s4">
+                                        <div class="center">
+                                            <button class="btn-large red darken-4" onClick={props.nextQuest}>{ans}</button>
+                                        </div>
+                                    </div>
+                            ))}
+                            
                             </div>
                         </div>
                     </div>
