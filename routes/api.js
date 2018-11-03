@@ -1,6 +1,8 @@
 var axios = require("axios");
 const router = require("express").Router();
 
+var db = require("../models");
+
 /**
  * Route for getting collection information from shopify.
  * To be used in the CMS for adding collections to the questionnaire
@@ -72,6 +74,7 @@ function getProductsFromCollects(collects) {
   return new Promise((resolve, reject) => {
     let productsCsv = collects.map(collect => collect.product_id).join(",");
     let url = `${process.env.SHOPIFY_URL}/admin/products.json?ids=${productsCsv}`;
+    console.log(url);
     axios.get(url)
       .then(response => resolve(response.data.products))
       .catch(error => reject(error));
@@ -81,6 +84,7 @@ function getProductsFromCollects(collects) {
 /**
  * Route for getting products associated with a collection
  */
+/*
 router.route("/products/:collection").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
@@ -95,6 +99,7 @@ router.route("/products/:collection").get((req, res) => {
     res.send(error);
   });
 });
+*/
 
 /**
  * Route for getting products associated with a collection and tag
@@ -102,7 +107,8 @@ router.route("/products/:collection").get((req, res) => {
  * manipulation to check for tags... a bit expensive, but necessary
  * for getting the matches due to shopify limitations
  */
-router.route("/products/:collection/:tag").get((req, res) => {
+/*
+router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
@@ -120,6 +126,23 @@ router.route("/products/:collection/:tag").get((req, res) => {
     console.log(error);
     res.send(error);
   });
+});
+*/
+router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
+  console.log("hurr");
+  let lookup = [req.params.tag];
+  if (req.params.caffeinated === "decaf") {
+    lookup.push("decaf");
+  }
+  console.log(lookup);
+  var collection = req.params.collection.replace("+", " ");
+  console.log(collection);
+  //db.Product.find({ tags: { $all: lookup }, collection: collection })
+  db.Product.find({ collection_name: collection , tags: { $all: lookup } })
+    .then(productList => {
+      console.log(productList);
+      res.json(productList)
+    });
 });
 
 /**
