@@ -1,0 +1,122 @@
+/* Materialize overrides */
+
+.brand-logo {
+	cursor: default
+}
+
+.fixed-action-btn {
+	position: absolute;
+	top: -2px;
+	right: 6px;
+}
+
+.btn-floating {
+	position: relative;
+	right: 2px;
+}
+
+.page-footer {
+	vertical-align: middle;
+}
+
+/*_______________________*/
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+*::selection {
+	color: white;
+	background-color: brown ;
+}
+
+body {
+	background-color: white;
+	background-image: url("../images/bg8_small.png");
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+
+/* .btn_flatten {
+	height: 30px;
+	line-height: 30px;
+} */
+
+.tabs {
+	position: relative;
+	bottom: -11px;
+}
+
+.big_letter {
+	font-size: 30pt;
+	/* font-weight: bold; */
+	text-shadow: -2px 2px 1px brown
+}
+
+.fancy_letter {
+	font-family: 'Pacifico', cursive;
+}
+
+#nav_prof {
+	cursor: default;
+}
+
+#prof_main {
+	position: relative;
+	vertical-align: middle;
+	color: #D32F2F
+}
+
+.prof_logo {
+	position: relative;
+	width: 37px;
+	vertical-align: middle;
+}
+
+.heading_img {
+	position: absolute;
+	width: 130px;
+	z-index: 1;
+	border: 2px solid white;
+}
+
+.bg_scenic {
+	background-image: url(../images/ocean_crop.jpg);
+	background-position: 0 -70px;
+}
+
+.heading_title {
+	color: black;
+	text-shadow: 0px 3px 5px  white;
+}
+
+/* mobile size fixes */
+
+@media only screen and (max-width: 620px) {
+    .big_letter {
+        font-size: 20pt;
+	}
+	.bg_scenic {
+		background-position: 0 -86px;
+	}
+	.heading_img {
+		width: 105px;
+	}
+	.heading_title {
+		font-size: 30pt;
+	}
+	#card_projects {
+		font-size: 14pt;
+	}
+	#card_about {
+		font-size: 14pt;
+	}
+}
