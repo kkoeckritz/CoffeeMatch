@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography'
 
 const QuestMain = props => 
     <div className="quest_main">
-        <Card>
+        {/* <Card>
             <CardMedia 
                     className="c_media"
                     image="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg"
@@ -29,7 +29,7 @@ const QuestMain = props =>
                             Go To Course
                         </Button>
                     </CardActions>
-        </Card>
+        </Card> */}
     </div>
 
 export default QuestMain;
