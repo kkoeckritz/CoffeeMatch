@@ -33,7 +33,7 @@ router.route("/questionnaire-collections").get((req, res) => {
  * @returns {Promise} - Promise object with return value of ID integer
  */
 function getCollectionIdFromName(collectionHandle) {
-  let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?title=${collectionHandle}`;
+  let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?handle=${collectionHandle}`;
   return new Promise((resolve, reject) => {
     axios.get(url).then((response) => {
       if (response.data.custom_collections.length === 1) {
