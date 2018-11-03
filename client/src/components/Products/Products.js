@@ -3,43 +3,30 @@ import React from "react";
 
 const Products = props => 
     <div className="products">
-       <div className="content">
-<div className="grid">
-
-  <figure className="effect-roxy">
-						<img src="https://tympanus.net/Development/HoverEffectIdeas/img/15.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Coffee <span>1</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-  <figure className="effect-roxy">
-						<img src="https://tympanus.net/Development/HoverEffectIdeas/img/15.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Coffee <span>2</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-  <figure className="effect-roxy">
-						<img src="https://tympanus.net/Development/HoverEffectIdeas/img/15.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Coffee <span>3</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-  <figure className="effect-roxy">
-						<img src="https://tympanus.net/Development/HoverEffectIdeas/img/15.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Coffee <span>4</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-</div>
+       <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 1
+        </div>
+        <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 2
+        </div>
+        <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 3
+        </div>
+        <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 4
+        </div>
+        <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 5
+        </div>
+        <div className="chip">
+        <img src="./assets/images/soul work logo.png" alt="Contact Person"/>
+    Coffee 6
+        </div>
     </div>
 
 export default Products; 

@@ -6,6 +6,12 @@
 
 }
 
+.chip {
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 10px;
+}
+
 .grid {
 	position: relative;
 	margin: 0 auto;
@@ -20,7 +26,7 @@
 	position: relative;
 	float: left;
 	overflow: hidden;
-	margin: 2px;
+	margin: px;
 	min-width: 200px;
 	max-width: 295px;
 	max-height: 295px;
