@@ -33,7 +33,7 @@ class App extends Component {
         [
           "Citrus & Berry",
           "Chocolate & Nuts",
-          "Spice and Earth"
+          "Spice & Earth"
         ]
       ]
     }
@@ -47,7 +47,7 @@ class App extends Component {
     } else {
       new_ind = this.state.cur_ind;
     }
-    this.setState({ cur_ind: new_ind});
+    this.setState({ cur_ind: new_ind });
   };
   
   render() {
