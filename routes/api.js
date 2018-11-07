@@ -112,7 +112,7 @@ router.route("/products/:collection").get((req, res) => {
  * manipulation to check for tags... a bit expensive, but necessary
  * for getting the matches due to shopify limitations
  */
-/*
+
 router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
@@ -132,53 +132,60 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
     res.send(error);
   });
 });
-*/
-router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
-  console.log("hurr");
-  let lookup = [req.params.tag];
-  if (req.params.caffeinated === "decaf") {
-    lookup.push("decaf");
-  }
-  console.log(lookup);
-  var collection = req.params.collection.replace("+", " ");
-  console.log(collection);
-  //db.Product.find({ tags: { $all: lookup }, collection: collection })
-  db.Product.find({ collection_handle: collection , tags: { $all: lookup } })
-    .then(productList => {
-      console.log(productList);
-      res.json(productList)
-    });
-});
 
-router.route("/tags/:collection/:caffeinated").get((req, res) => {
-  var collection = req.params.collection.replace("+", " ");
-  let query = { collection_handle: collection };
-  if (req.params.caffeinated === "decaf") {
-    query = { collection_handle: collection, tags: { $all: ["decaf"] } };
-  }
-  db.Product.find(query)
-  .then(productList => {
-    let tagSet = new Set();
-    productList.map(product => {
-      product.tags.map(tag => (  // split product tags string by comma
-        tagSet.add(tag)            // add tag from tags string to set of tags
-      ))
-    })
-    console.log(Array.from(tagSet));
-    res.json(Array.from(tagSet));
-  });
-});
+// router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
+//   console.log("hurr");
+//   let lookup = [req.params.tag];
+//   if (req.params.caffeinated === "decaf") {
+//     lookup.push("decaf");
+//   }
+//   console.log(lookup);
+//   var collection = req.params.collection.replace("+", " ");
+//   console.log(collection);
+//   //db.Product.find({ tags: { $all: lookup }, collection: collection })
+//   db.Product.find({ collection_handle: collection , tags: { $all: lookup } })
+//     .then(productList => {
+//       console.log(productList);
+//       res.json(productList)
+//     });
+// });
+
+// router.route("/tags/:collection/:caffeinated").get((req, res) => {
+//   var collection = req.params.collection.replace("+", " ");
+//   let query = { collection_handle: collection };
+//   if (req.params.caffeinated === "decaf") {
+//     query = { collection_handle: collection, tags: { $all: ["decaf"] } };
+//   }
+//   db.Product.find(query)
+//   .then(productList => {
+//     let tagSet = new Set();
+//     productList.map(product => {
+//       product.tags.map(tag => (  // split product tags string by comma
+//         tagSet.add(tag)            // add tag from tags string to set of tags
+//       ))
+//     })
+//     console.log(Array.from(tagSet));
+//     res.json(Array.from(tagSet));
+//   });
+// });
 
 /**
  * Route for getting of the product tags associated with a given collection
+ * Caffeinted is a parameter used to indicate whether or not the coffee
+ * is decaf. If the value of caffeinated is decaf, then filter for decaf
+ * coffees. Otherwise (if it is any other value), do not filter
  */
-/*
-router.route("/tags/:collection").get((req, res) => {
+router.route("/tags/:collection/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
         let tagsSet = new Set();
-        products.map(product => (               // for each product
+        products.filter(product => {
+          if(req.params.caffeinated === "decaf") {
+            return product.tags.toLowerCase().includes("decaf");
+          }
+          return true;
+        }).map(product => (               // for each product
           product.tags.split(",").map(tag => (  // split product tags string by comma
             tagsSet.add(tag.trim()))            // add tag from tags string to set of tags
           )
@@ -193,6 +200,6 @@ router.route("/tags/:collection").get((req, res) => {
     res.send(error);
   });
 });
-*/
+
 
 module.exports = router;
