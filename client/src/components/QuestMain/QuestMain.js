@@ -19,10 +19,10 @@ const QuestMain = props =>
 							{
 								props.cur_ans.map(ans => (
 									<figure className="effect-ruby" onClick={props.nextQuest}>
-									<img src="https://burst.shopifycdn.com/photos/pouring-hot-coffee_373x@2x.progressive.jpg" alt="img13"/>
+									<img src="" alt="img13"/>
 									<figcaption>
 									<h2>{ans}</h2>
-									<p>etc etc</p>
+									<p>{}</p>
 									</figcaption>			
 									</figure>
 								))

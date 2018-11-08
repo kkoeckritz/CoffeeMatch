@@ -25,7 +25,7 @@
     height: 280px;
 	max-height: 500px;
 	/* width: 48%; */
-	background: #3085a3;
+	background: #e53935;
 	text-align: center;
 	cursor: pointer;
 }
@@ -96,7 +96,7 @@
 /*---------------*/
 
 figure.effect-ruby {
-	background-color: #17819c;
+	background-color: #e53935;
 }
 
 figure.effect-ruby img {
@@ -170,7 +170,7 @@ body {
 
 a {
 	outline: none;
-	color: #3498db;
+	color: #e53935;
 	text-decoration: none;
 }
 
