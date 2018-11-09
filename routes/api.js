@@ -25,8 +25,8 @@ router.route("/shopify-collections").get((req, res) => {
 /**
  * Route for getting the collections used in the questionnaire.
  */
-router.route("/questionnaire-collections").get((req, res) => {
-  console.log("/questionnaire-collections");
+router.route("/api/questionnaire-collections").get((req, res) => {
+  console.log("/api/questionnaire-collections");
   db.Collection.find({})
     .then(collections => {
       console.log(collections);

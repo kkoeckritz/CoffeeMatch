@@ -27,7 +27,7 @@ class App extends Component {
       {
         questionText: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
         answersFunction: () => {
-          axios.get("/api/collections").then((collections) => {
+          axios.get("/api/questionnaire-collections").then((collections) => {
             console.log(collections);
             return collections.map(collection => {
               return {
