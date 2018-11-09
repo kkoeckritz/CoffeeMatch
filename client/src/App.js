@@ -8,14 +8,15 @@ import Products from './components/Products';
 
 
 class App extends Component {
-  questionsState = {
+
+  state = { 
     questionIndex: 0,
     caffeinated: "caffeinated",
     collection: "none",
     tag: "none",
     questions: [
-      {
-        questionText: "First things first: Regular or Decaf?",
+      { 
+        questionText: "First thing's first: Regular or Decaf?",
         answersFunction: () => {
           return [
             { text: "Decaf & Pointless", value: "decaf" },
@@ -27,6 +28,7 @@ class App extends Component {
         questionText: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
         answersFunction: () => {
           axios.get("/api/collections").then((collections) => {
+            console.log(collections);
             return collections.map(collection => {
               return {
                 text: collection.name,
@@ -40,12 +42,12 @@ class App extends Component {
         questionText: "You're almost done! Which flavor profile most appeals to you?",
         answersFunction: () => {
           axios.get(`/api/tags/${this.collection}/${this.caffeinated}`).then(tags => {
-            tags.map(tag => {
+            return tags.map(tag => {
+              console.log(tags);
               return {
                 text: tag,
                 value: tag
               }
-              
             });
           });
         }
@@ -53,48 +55,46 @@ class App extends Component {
     ]
   }
 
-  state = {
-    cur_ind: 0,
-
-    quiz_text: {
-      questions: [
-        "Unsure of which coffee to choose? SoulMate will help you decide.",
-        "How do you like it?",
-        "What's your style?",
-        "What suits your palate?"
-      ],
-      answers: [
-        [
-          "Get started"
-        ],
-        [
-          "Decaf",
-          "Caffeinated",
-        ],
-        [
-          "Casual",
-          "Roaster's Selection",
-          "Rare & Reserve"
-        ],
-        [
-          "Citrus & Berry",
-          "Chocolate & Nuts",
-          "Spice and Earth"
-        ]
-      ]
-    }
-  };
-
+  // increments current index val for state questions
   incCur = () => {
-    let new_ind = 0;
-    if (this.state.cur_ind <= this.state.quiz_text.questions.length)
+    if (this.state.questionIndex < 2)
     {
-      new_ind = this.state.cur_ind + 1;
-    } else {
-      new_ind = this.state.cur_ind;
+      this.setState({ questionIndex: this.state.questionIndex + 1});
     }
-    this.setState({ cur_ind: new_ind});
   };
+
+  // // old state
+  // state = {
+  //   cur_ind: 0,
+
+  //   quiz_text: {
+  //     questions: [
+  //       "Unsure of which coffee to choose? SoulMate will help you decide.",
+  //       "How do you like it?",
+  //       "What's your style?",
+  //       "What suits your palate?"
+  //     ],
+  //     answers: [
+  //       [
+  //         "Get started"
+  //       ],
+  //       [
+  //         "Decaf",
+  //         "Caffeinated",
+  //       ],
+  //       [
+  //         "Casual",
+  //         "Roaster's Selection",
+  //         "Rare & Reserve"
+  //       ],
+  //       [
+  //         "Citrus & Berry",
+  //         "Chocolate & Nuts",
+  //         "Spice & Earth"
+  //       ]
+  //     ]
+  //   }
+  // };
   
   render() {
     return (
@@ -102,8 +102,8 @@ class App extends Component {
         <TopBar/>
         <br />
         <QuestMain
-          cur_quest={this.state.quiz_text.questions[this.state.cur_ind]} 
-          cur_ans={this.state.quiz_text.answers[this.state.cur_ind]} 
+          cur_quest={this.state.questions[this.state.questionIndex].questionText} 
+          cur_ans={this.state.questions[this.state.questionIndex].answersFunction} 
           nextQuest={this.incCur} />
         <br />
         <Products />

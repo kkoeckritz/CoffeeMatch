@@ -6,12 +6,11 @@ const TopBar = props =>
         <header className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper red darken-4">
-                    
                     <div className="container">
                         <div className="row">
                             <div className="col m12">                            
                                 <a href="/" id="nav_name" className="brand-logo left">
-                                    <img class="logo" src="./assets/images/sw_1.png" alt="Soul Work Coffee"/>
+                                    <img className="logo" src="./assets/images/SW_1.png" alt="Soul Work Coffee"/>
                                 </a>
                                 <span className="big_letter fancy_letter right">SoulMate</span>
                             </div>

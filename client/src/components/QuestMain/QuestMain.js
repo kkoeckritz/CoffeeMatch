@@ -17,11 +17,11 @@ const QuestMain = props =>
 
 						<div className="container questGrid center">
 							{
-								props.cur_ans.map(ans => (
+								props.cur_ans().map(ans => (
 									<figure className="effect-ruby" onClick={props.nextQuest}>
 									<img src="" alt="img13"/>
 									<figcaption>
-									<h2>{ans}</h2>
+									<h2 data->{ans.text}</h2>
 									<p>{}</p>
 									</figcaption>			
 									</figure>

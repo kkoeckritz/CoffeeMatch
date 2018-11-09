@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/coffeematch"
+  "mongodb://localhost/coffeematch", 
+  { useNewUrlParser: true }
 );
 
 var collectionSeed = [
