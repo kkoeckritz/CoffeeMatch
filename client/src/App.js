@@ -18,18 +18,25 @@ class App extends Component {
       { 
         questionText: "First thing's first: Regular or Decaf?",
         answersFunction: () => {
-          return [
-            { text: "Decaf & Pointless", value: "decaf" },
-            { text: "Caffeinated", value: "caffeinated" }
-          ];
+          return new Promise((resolve, reject) => {
+            resolve (
+              {
+                data:
+                  [
+                    { text: "Decaf & Pointless", value: "decaf" },
+                    { text: "Caffeinated", value: "caffeinated" }
+                  ]
+              }
+            )
+          });
         }
       },
       {
         questionText: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
         answersFunction: () => {
-          axios.get("/api/questionnaire-collections").then((collections) => {
-            console.log(collections);
-            return collections.map(collection => {
+          return axios.get("/api/questionnaire-collections").then((collections) => {
+            // console.log(collections);
+            return collections.dat.map(collection => {
               return {
                 text: collection.name,
                 value: collection.handle,
@@ -43,7 +50,7 @@ class App extends Component {
         answersFunction: () => {
           axios.get(`/api/tags/${this.collection}/${this.caffeinated}`).then(tags => {
             return tags.map(tag => {
-              console.log(tags);
+              // console.log(tags);
               return {
                 text: tag,
                 value: tag
