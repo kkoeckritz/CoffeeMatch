@@ -9,15 +9,18 @@ mongoose.connect(
 var collectionSeed = [
   {
     name: "Rare & Reserve",
-    collection_handle: "rarereserve",
+    handle: "rarereserve",
+    has_decaf: false,
   },
   {
     name: "Roaster's Selection",
     handle: "roastersselection",
+    has_decaf: true,
   },
   {
     name: "Casual Coffee",
     handle: "casualcoffee",
+    has_decaf: false,
   }
 ]
 
