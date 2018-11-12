@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -33,17 +37,44 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+<div class="fixed-action-btn direction-top active" style="bottom: 45px; right: 24px;">
+        <a id="menu" class="waves-effect waves-light btn btn-floating btn-large red darken-1" ><i class="material-icons" onclick="discover()">menu</i></a>
+    
+      
+      <!-- Tap Target Structure -->
+      <div class="tap-target" data-target="menu">
+        <div class="tap-target-content top">
+          <h5 class="about" style="text-align: center;">SoulMate</h5>
+          <p style="padding-left:30px;">Our parents and grandparents drank coffee to caffeinate (not that there's anything wrong with that). We're lucky to explore all the flavors and aromas that expertly grown and roasted coffee has to offer.</p>
+        </div>
+      </div>
+    </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
+  
+  <script>
+   $(document).ready(function () {
+  $('.tap-target').tapTarget()
+  
+  $('.btn').on('change', function() {
+     $('.tap-target').tapTarget('open')
+  })  
+})
+
+function discover() {
+  
+  var elem = document.querySelectorAll('.tap-target');
+  console.log('elem', elem);
+  
+  var instance = M.TapTarget.getInstance(elem[0]);
+  console.log('getInstance', instance);
+  
+  instance.open();
+  
+}
+
+  </script>
   <script type="text/javascript" src="./assets/js/materialize.js"></script>
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 </html>

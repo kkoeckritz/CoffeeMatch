@@ -1,7 +1,9 @@
-import "./TopBar.css";
+import "./NavBar.css";
 import React from "react";
+import small_logo from "./SW_1.png";
 
-const TopBar = props => 
+const NavBar = props => 
+
     <div className="quest_main">
         <header className="navbar-fixed">
             <nav>
@@ -11,7 +13,7 @@ const TopBar = props =>
                         <div className="row">
                             <div className="col m12">                            
                                 <a href="/" id="nav_name" className="brand-logo left">
-                                    <img class="logo" src="./assets/images/sw_1.png" alt="Soul Work Coffee"/>
+                                    <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
                                 </a>
                                 <span className="big_letter fancy_letter right">SoulMate</span>
                             </div>
@@ -22,5 +24,7 @@ const TopBar = props =>
             </nav>		
         </header>
     </div>
-	
-export default TopBar;
+        
+  
+
+export default NavBar;
