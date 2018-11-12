@@ -25,16 +25,12 @@ router.route("/shopify-collections").get((req, res) => {
 /**
  * Route for getting the collections used in the questionnaire.
  */
-router.route("/questionnaire-collections/:caffeinated").get((req, res) => {
-  console.log("/questionnaire-collections");
-  let query = {};
-  if (req.params.caffeinated === "decaf") {
-    query = { has_decaf: true };
-  }
-  db.Collection.find(query)
+router.route("/api/collections").get((req, res) => {
+  console.log("/api/collections");
+  db.Collection.find({})
     .then(collections => {
       console.log(collections);
-      res.json(collections);
+      res.json(collections)
     });
 });
 
