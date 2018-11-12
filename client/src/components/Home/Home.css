@@ -181,13 +181,12 @@ figure.effect-bubba:hover p {
 .clearfix:before, .clearfix:after { display: table; content: ''; }
 .clearfix:after { clear: both; }
 
-body {
-	background: #2f3238;
+/* body {
 	color: #fff;
 	font-weight: 400;
 	font-size: 1em;
 	font-family: 'Raleway', Arial, sans-serif;
-}
+} */
 
 a {
 	outline: none;
@@ -213,7 +212,6 @@ section {
 	clear: both;
 	margin: 0;
 	padding: 4em 1% 0;
-	color: #484B54;
 	font-weight: 800;
 	font-size: 1.5em;
 }
@@ -239,7 +237,6 @@ section {
 .codrops-header h1 span {
 	display: block;
 	padding: 0 0 0.6em 0.1em;
-	color: #74777b;
 	font-weight: 300;
 	font-size: 45%;
 }
@@ -266,7 +263,6 @@ section {
 .codrops-demos a:hover,
 .codrops-demos a:focus,
 .codrops-demos a.current-demo {
-	background: #3c414a;
 	color: #fff;
 }
 

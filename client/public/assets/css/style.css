@@ -5,3 +5,12 @@ p {
   .about {
 	text-align: center;
   }
+
+  html, 
+  body {
+	background-image: linear-gradient(to right bottom, #131212, #242222, #353333, #474545, #5a5858);
+	/* background-image: url("../images/bg8_small.png"); */
+	background-repeat: repeat;
+	background-attachment: fixed;
+	font-family: 'Open Sans Condensed', sans-serif;
+  }

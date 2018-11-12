@@ -13,7 +13,7 @@ class Home extends Component {
          
             <div className="content">
                 <div className="grid">
-                    <figure className="effect-bubba">
+                    <figure className="effect-bubba z-depth-3">
                         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02" />
                         <figcaption>
                             <h2>Decaf & Pointless</h2>
@@ -21,7 +21,7 @@ class Home extends Component {
                             <a href="/decaf">Decaf</a>
                         </figcaption>
                     </figure>
-                    <figure className="effect-bubba">
+                    <figure className="effect-bubba z-depth-3">
                         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16" />
                         <figcaption>
                             <h2>Caffeinated</h2>
@@ -31,7 +31,10 @@ class Home extends Component {
                     </figure>
                 </div>
             </div>
+
             </div>
+
+            
         )
     }
 }
