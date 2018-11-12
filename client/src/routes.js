@@ -13,10 +13,18 @@ const Routes = () =>(
         <Switch>
             <Route exact path='/' component={GetStarted} />
             <Route exact path='/home' component={Home} />
-            <Route exact path='/decaf' component={Decaf} />
-            <Route exact path='/caffeine' component={Caffeine} />
-            <Route exact path='/decaf/selections' component={DecafStuff} />
-            <Route exact path='/caffeine/selections' component={CaffeineStuff} />
+            <Route 
+                exact path='/decaf' 
+                render={(props) => <Decaf {...props} />} />
+            <Route 
+                exact path='/caffeine' 
+                render={(props) => <Caffeine {...props} />} />
+            <Route 
+                exact path='/decaf/selections' 
+                render={(props) => <DecafStuff {...props} />} />
+            <Route 
+                exact path='/caffeine/selections' 
+                render={(props) => <CaffeineStuff {...props} />} />
         </Switch>
     </BrowserRouter>
 )
