@@ -14,7 +14,7 @@ class Home extends Component {
     render() {
         return (
             <div className="question1">
-                <p>{ this.state.question }</p>
+                <h5>{ this.state.question }</h5>
          
             <div className="content">
                 <div className="grid">
