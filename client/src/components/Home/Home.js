@@ -2,31 +2,39 @@ import React, { Component } from "react";
 import "./Home.css";
 
 class Home extends Component {
-    // state : {
-
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+          choices: ["Decaf & Pointless", "Caffeinated"],
+          info: ["Description of decaf", "Description of Caffeine"],
+          question: "First things first: Regular or Decaf?"
+        }
+      }
 
     render() {
         return (
             <div className="question1">
-                <p>First things first: Regular or Decaf?</p>
+                <p>{ this.state.question }</p>
          
             <div className="content">
                 <div className="grid">
                     <figure className="effect-bubba z-depth-3">
                         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02" />
                         <figcaption>
-                            <h2>Decaf & Pointless</h2>
-                            <p>........</p>
-                            <a href="/decaf">Decaf</a>
+                            <h2>{this.state.choices[0]}</h2>
+                            <p>{this.state.info[0]}</p>
+                            <a href="/decaf">{this.state.choices[0]}</a>
                         </figcaption>
                     </figure>
+                    
+
+
                     <figure className="effect-bubba z-depth-3">
                         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16" />
                         <figcaption>
-                            <h2>Caffeinated</h2>
-                            <p>......</p>
-                            <a href="/caffeine">Caffeine</a>
+                            <h2>{this.state.choices[1]}</h2>
+                            <p>{this.state.info[1]}</p>
+                            <a href="/caffeine">{this.state.choices[1]}</a>
                         </figcaption>
                     </figure>
                 </div>
