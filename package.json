@@ -13,6 +13,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "proxy": "http://localhost:3001",
   "author": "",
   "license": "ISC",
   "devDependencies": {
