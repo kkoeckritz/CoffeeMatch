@@ -25,16 +25,18 @@ router.route("/shopify-collections").get((req, res) => {
 /**
  * Route for getting the collections used in the questionnaire.
  */
-router.route("/questionnaire-collections/:caffeinated").get((req, res) => {
-  console.log("/questionnaire-collections");
+router.route("/collections/:caffeine").get((req, res) => {
+  console.log(`/collections/${req.params.caffeine}`);
   let query = {};
-  if (req.params.caffeinated === "decaf") {
+  if (req.params.caffeine == "decaf") {
+    console.log("decaf");
     query = { has_decaf: true };
   }
+  console.log(query);
   db.Collection.find(query)
     .then(collections => {
       console.log(collections);
-      res.json(collections);
+      res.json(collections)
     });
 });
 
@@ -138,16 +140,24 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
 });
 */
 router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
-  console.log("hurr");
-  let lookup = [req.params.tag];
+  let query = {
+    $and: [
+      {
+        collection_handle: req.params.collection
+      },
+      {
+        tags: req.params.tag
+      }
+    ]
+  };
   if (req.params.caffeinated === "decaf") {
-    lookup.push("decaf");
+    query['$and'].push({tags: "decaf"});
   }
-  console.log(lookup);
-  var collection = req.params.collection.replace("+", " ");
-  console.log(collection);
-  //db.Product.find({ tags: { $all: lookup }, collection: collection })
-  db.Product.find({ collection_handle: collection , tags: { $all: lookup } })
+  else {
+    query["$and"].push({tags: {$ne: "decaf"} });
+  }
+  console.log(query);
+  db.Product.find(query)
     .then(productList => {
       console.log(productList);
       res.json(productList)
@@ -164,9 +174,11 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
   .then(productList => {
     let tagSet = new Set();
     productList.map(product => {
-      product.tags.map(tag => (  // split product tags string by comma
-        tagSet.add(tag)            // add tag from tags string to set of tags
-      ))
+      product.tags
+        .filter(tag => tag != "decaf")
+        .map(tag => (  // split product tags string by comma
+          tagSet.add(tag)            // add tag from tags string to set of tags
+        ))
     })
     console.log(Array.from(tagSet));
     res.json(Array.from(tagSet));
