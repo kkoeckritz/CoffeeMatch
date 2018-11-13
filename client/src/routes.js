@@ -5,8 +5,7 @@ import Home from './components/Home/Home';
 import GetStarted from './components/GetStarted/GetStarted';
 import Tags from './components/Tags';
 import Caffeine from './components/Caffeine/Caffeine';
-import DecafStuff from './components/DecafStuff/DecafStuff';
-import CaffeineStuff from './components/CaffeineStuff/CaffeineStuff';
+import Results from './components/Results';
 
 const Routes = (props) =>(
     <BrowserRouter>
@@ -20,6 +19,9 @@ const Routes = (props) =>(
             <Route 
                 exact path='/tags' 
                 render={(routeProps) => <Tags {...routeProps} {...props} />} />
+            <Route 
+                exact path='/results' 
+                render={(routeProps) => <Results {...routeProps} {...props} />} />
         </Switch>
     </BrowserRouter>
 )

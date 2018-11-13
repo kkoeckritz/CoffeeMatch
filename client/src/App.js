@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
     caffeine: "caffeine",
-    collectionHandle: "none"
+    collectionHandle: "none",
+    tag: "none"
   }
 
   setCaffeine = (caffeineToSet) => {
@@ -22,6 +23,11 @@ class App extends Component {
     this.setState({ collectionHandle: collectionHandleToSet});
   }
 
+  setTag = (tagToSet) => {
+    console.log(`setTag(${tagToSet})`);
+    this.setState({ tag: tagToSet});
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +37,8 @@ class App extends Component {
           setCaffeine={this.setCaffeine}
           collection={this.state.collectionHandle}
           setCollection={this.setCollection}
+          tag={this.state.tag}
+          setTag={this.setTag}
         />
         {/* <Footer /> */}
         
