@@ -9,11 +9,17 @@ class App extends Component {
 
   state = {
     caffeine: "caffeine",
+    collectionHandle: "none"
   }
 
   setCaffeine = (caffeineToSet) => {
     console.log(`setCaffeine(${caffeineToSet})`);
     this.setState({ caffeine: caffeineToSet});
+  }
+
+  setCollection = (collectionHandleToSet) => {
+    console.log(`setCollection(${collectionHandleToSet})`);
+    this.setState({ collectionHandle: collectionHandleToSet});
   }
 
   render() {
@@ -23,6 +29,8 @@ class App extends Component {
         <Routes 
           caffeine={this.state.caffeine}
           setCaffeine={this.setCaffeine}
+          collection={this.state.collectionHandle}
+          setCollection={this.setCollection}
         />
         {/* <Footer /> */}
         
