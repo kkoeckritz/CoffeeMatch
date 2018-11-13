@@ -25,9 +25,13 @@ router.route("/shopify-collections").get((req, res) => {
 /**
  * Route for getting the collections used in the questionnaire.
  */
-router.route("/collections").get((req, res) => {
+router.route("/collections/:caffeine").get((req, res) => {
   console.log("/collections");
-  db.Collection.find({})
+  let query = {};
+  if (req.params.caffeinated === "decaf") {
+    query = { has_decaf: true };
+  }
+  db.Collection.find(query)
     .then(collections => {
       console.log(collections);
       res.json(collections)
