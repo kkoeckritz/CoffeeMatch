@@ -83,7 +83,7 @@ figure.effect-bubba:hover p {
 	position: relative;
 	margin: 0 auto;
 	padding: 1em 0 4em;
-	max-width: 1600px;
+	max-width: 1000px;
 	list-style: none;
 	text-align: center;
 }
@@ -93,11 +93,11 @@ figure.effect-bubba:hover p {
 	position: relative;
 	float: left;
 	overflow: hidden;
-    margin: 16px;
-    min-width: 320px;
+	margin: 10px 1%;
+	min-width: 320px;
 	max-width: 480px;
 	max-height: 360px;
-	width: 31%;
+	width: 48%;
 	background: #e53935;
 	text-align: center;
 	cursor: pointer;
@@ -108,8 +108,7 @@ figure.effect-bubba:hover p {
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-    opacity: 0.8;
-
+	opacity: 0.8;
 }
 
 .grid figure figcaption {
