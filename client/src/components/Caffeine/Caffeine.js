@@ -14,6 +14,7 @@ class Caffeine extends Component {
     
     fetch(`/api/collections/${this.props.caffeine}`)
       .then(results => {
+        console.log(results);
         return results.json();
       }).then(data => {
         let collections = data.map((collection) => {
