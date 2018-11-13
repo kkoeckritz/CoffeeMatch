@@ -11,16 +11,19 @@ var collectionSeed = [
     name: "Rare & Reserve",
     handle: "rarereserve",
     has_decaf: false,
+    imgURL: "../client/public/assets/images/collectionTags/pour-over-coffee-to-order-at-cafe_925x"
   },
   {
     name: "Roaster's Selection",
     handle: "roastersselection",
     has_decaf: true,
+    imgURL: "../client/public/assets/images/collectionTags/hand-full-of-roasted-coffee_925x"
   },
   {
     name: "Casual Coffee",
     handle: "casualcoffee",
     has_decaf: false,
+    imgURL: "../client/public/assets/images/collectionTags/holding-coffee-in-bed_925x"
   }
 ]
 
