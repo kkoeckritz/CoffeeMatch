@@ -3,6 +3,11 @@ const router = require("express").Router();
 
 var db = require("../models");
 
+var FILTERED_TAGS = [
+  "decaf",
+  "subscription"
+]
+
 /**
  * Route for getting collection information from shopify.
  * To be used in the CMS for adding collections to the questionnaire
@@ -164,6 +169,7 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
     });
 });
 
+/*
 router.route("/tags/:collection/:caffeinated").get((req, res) => {
   var collection = req.params.collection.replace("+", " ");
   let query = { collection_handle: collection };
@@ -184,22 +190,34 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
     res.json(Array.from(tagSet));
   });
 });
+*/
 
 /**
  * Route for getting of the product tags associated with a given collection
  */
-/*
-router.route("/tags/:collection").get((req, res) => {
+router.route("/tags/:collection/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
+        console.log(products.map(p => { return { n: p.title, t: p.tags}}));
+
+        let productsFiltered = [];
+        if (req.params.caffeinated == "decaf") {
+          productsFiltered = products.filter(p => p.tags.toLowerCase().includes("decaf"));
+        } else {
+          productsFiltered = products.filter(p => !p.tags.toLowerCase().includes("decaf"));
+        }
+        console.log(productsFiltered);
+
         let tagsSet = new Set();
-        products.map(product => (               // for each product
-          product.tags.split(",").map(tag => (  // split product tags string by comma
-            tagsSet.add(tag.trim()))            // add tag from tags string to set of tags
-          )
+        productsFiltered.map(product => (                  // for each product
+          product.tags
+            .split(",")                                    // split CSV string
+            .map(tag => tag.trim().toLowerCase())          // trim excess spaces and lower case
+            .filter(tag => FILTERED_TAGS.indexOf(tag) < 0) // if indexOf is -1, not a filtered tag
+            .map(tag => tagsSet.add(tag))                  // add tags to tag set
         ));
-        res.json(Array.from(tagsSet));          // convert set of tags to JSON array and send
+        res.json(Array.from(tagsSet));                     // convert JSON array and send
       });
     });
   })
@@ -209,6 +227,5 @@ router.route("/tags/:collection").get((req, res) => {
     res.send(error);
   });
 });
-*/
 
 module.exports = router;
