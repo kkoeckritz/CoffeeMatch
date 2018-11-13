@@ -166,9 +166,11 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
   .then(productList => {
     let tagSet = new Set();
     productList.map(product => {
-      product.tags.map(tag => (  // split product tags string by comma
-        tagSet.add(tag)            // add tag from tags string to set of tags
-      ))
+      product.tags
+        .filter(tag => tag != "decaf")
+        .map(tag => (  // split product tags string by comma
+          tagSet.add(tag)            // add tag from tags string to set of tags
+        ))
     })
     console.log(Array.from(tagSet));
     res.json(Array.from(tagSet));
