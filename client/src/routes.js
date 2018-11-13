@@ -8,23 +8,24 @@ import Caffeine from './components/Caffeine/Caffeine';
 import DecafStuff from './components/DecafStuff/DecafStuff';
 import CaffeineStuff from './components/CaffeineStuff/CaffeineStuff';
 
-const Routes = () =>(
+const Routes = (props) =>(
     <BrowserRouter>
         <Switch>
             <Route exact path='/' component={GetStarted} />
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/home' 
+                render={(routeProps) => <Home {...routeProps} {...props} />} />
             <Route 
                 exact path='/decaf' 
-                render={(props) => <Decaf {...props} />} />
+                render={(routeProps) => <Decaf {...routeProps} {...props} />} />
             <Route 
                 exact path='/caffeine' 
-                render={(props) => <Caffeine {...props} />} />
+                render={(routeProps) => <Caffeine {...routeProps} {...props} />} />
             <Route 
                 exact path='/decaf/selections' 
-                render={(props) => <DecafStuff {...props} />} />
+                render={(routeProps) => <DecafStuff {...routeProps} {...props} />} />
             <Route 
                 exact path='/caffeine/selections' 
-                render={(props) => <CaffeineStuff {...props} />} />
+                render={(routeProps) => <CaffeineStuff {...routeProps} {...props} />} />
         </Switch>
     </BrowserRouter>
 )
