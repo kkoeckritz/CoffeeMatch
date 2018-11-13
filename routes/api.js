@@ -140,16 +140,24 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
 });
 */
 router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
-  console.log("hurr");
-  let lookup = [req.params.tag];
+  let query = {
+    $and: [
+      {
+        collection_handle: req.params.collection
+      },
+      {
+        tags: req.params.tag
+      }
+    ]
+  };
   if (req.params.caffeinated === "decaf") {
-    lookup.push("decaf");
+    query['$and'].push({tags: "decaf"});
   }
-  console.log(lookup);
-  var collection = req.params.collection.replace("+", " ");
-  console.log(collection);
-  //db.Product.find({ tags: { $all: lookup }, collection: collection })
-  db.Product.find({ collection_handle: collection , tags: { $all: lookup } })
+  else {
+    query["$and"].push({tags: {$ne: "decaf"} });
+  }
+  console.log(query);
+  db.Product.find(query)
     .then(productList => {
       console.log(productList);
       res.json(productList)
