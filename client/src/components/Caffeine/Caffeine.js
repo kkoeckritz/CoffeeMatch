@@ -6,6 +6,7 @@ class Caffeine extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      question: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
       collections: []
     };
   }
@@ -18,10 +19,16 @@ class Caffeine extends Component {
       }).then(data => {
         let collections = data.map((collection) => {
           return(
-            <div key={collection.results}>
-              <p>{collection.name}</p>
-
-              </div>
+            
+                    <figure className="effect-bubba z-depth-3">
+                        <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02" />
+                        <figcaption>
+                            <h2>{collection.name}</h2>
+                            {/* <p>{this.state.info[0]}</p> */}
+                            {/* <a href="/decaf">{collection.name}</a> */}
+                        </figcaption>
+                    </figure>
+                
           )
         })
         this.setState({collections: collections});
@@ -36,8 +43,14 @@ class Caffeine extends Component {
   render() {
       return(
         <div className="caffeine">
-            <p>{this.state.collections}</p>
+        <p>{this.state.question}</p>
+        <div className="content">
+                <div className="grid">
+      
+            {this.state.collections}
         </div>
+        </div>
+            </div>
       )
     }
     }
