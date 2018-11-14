@@ -44,17 +44,6 @@ class Home extends Component {
                                 <p>{this.state.info[1]}</p>
                             </figcaption>
                         </figure>
-
-                        <figure className="effect-bubba z-depth-3">
-                            <img src="" alt="" />
-                            <figcaption
-                                onClick={() => this.props.history.goBack()}
-                            >
-                            <h2>Go Back</h2>
-                            <p><i class="large material-icons">arrow_back</i>
-                            </p>
-                            </figcaption>
-                        </figure>
                     </div>
                 </div>
             </div>  
