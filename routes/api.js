@@ -52,6 +52,7 @@ router.route("/collections/:caffeine").get((req, res) => {
  */
 function getCollectionIdFromName(collectionHandle) {
   let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?handle=${collectionHandle}`;
+  console.log(url);
   return new Promise((resolve, reject) => {
     axios.get(url).then((response) => {
       if (response.data.custom_collections.length === 1) {
@@ -199,7 +200,6 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
-        console.log(products.map(p => { return { n: p.title, t: p.tags}}));
 
         let productsFiltered = [];
         if (req.params.caffeinated == "decaf") {
@@ -207,7 +207,6 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
         } else {
           productsFiltered = products.filter(p => !p.tags.toLowerCase().includes("decaf"));
         }
-        console.log(productsFiltered);
 
         let tagsSet = new Set();
         productsFiltered.map(product => (                  // for each product
@@ -217,6 +216,12 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
             .filter(tag => FILTERED_TAGS.indexOf(tag) < 0) // if indexOf is -1, not a filtered tag
             .map(tag => tagsSet.add(tag))                  // add tags to tag set
         ));
+
+        db.Tags.find({ tagName: { $in: Array.from(tagsSet) } })
+          .then(buckets => {
+            console.log(buckets);
+          })
+
         res.json(Array.from(tagsSet));                     // convert JSON array and send
       });
     });
