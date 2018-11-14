@@ -5,7 +5,6 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: "You made it! Take a look at these matches!",
       products: []
     };
   }
@@ -45,7 +44,7 @@ class Results extends Component {
   render() {
     return (
       <div className="caffeine">
-        <p>{this.state.question}</p>
+        <p>{this.props.text.result}</p>
         <div className="content">
           <div className="grid">
             {this.state.products}

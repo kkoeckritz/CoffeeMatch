@@ -5,7 +5,7 @@ class Decaf extends Component {
     render() {
         return (
             <div className="decaf">
-                <p>Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.</p>
+                <p>{this.props.text.question2}</p>
 
                 <figure className="effect-bubba z-depth-3">
                     <img src="" alt="" />

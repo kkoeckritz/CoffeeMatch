@@ -6,12 +6,22 @@ import NavBar from './components/NavBar';
 import Routes from './routes';
 
 class App extends Component {
-
-  state = {
-    caffeine: "caffeine",
-    collectionHandle: "none",
-    tag: "none"
+  constructor(props) {
+    super(props);
+    this.state = {
+      choices: ["Decaf & Pointless", "Caffeinated"],
+      info: ["Description of decaf", "Description of Caffeine"],
+      text: {
+        question1: "First things first: Regular or Decaf?",
+        question2: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
+        question3: "You're almost done! Which flavor profile most appeals to you?",
+        result: "You made it! Take a look at these matches!"
+      },
+      caffeine: "caffeine",
+      collectionHandle: "none",
+      tag: "none"
   }
+}
 
   setCaffeine = (caffeineToSet) => {
     console.log(`setCaffeine(${caffeineToSet})`);
@@ -32,7 +42,11 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <Routes 
+        
+        <Routes
+          choices={this.state.choices}
+          info={this.state.choices}
+          text={this.state.text}
           caffeine={this.state.caffeine}
           setCaffeine={this.setCaffeine}
           collection={this.state.collectionHandle}

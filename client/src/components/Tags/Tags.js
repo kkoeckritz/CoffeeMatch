@@ -5,7 +5,6 @@ class Tags extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: "You're almost done! Which flavor profile most appeals to you?",
       tags: []
     };
   }
@@ -47,7 +46,7 @@ class Tags extends Component {
   render() {
     return (
       <div className="caffeine">
-        <p>{this.state.question}</p>
+        <p>{this.props.text.question3}</p>
         <div className="content">
           <div className="grid">
             {this.state.tags}

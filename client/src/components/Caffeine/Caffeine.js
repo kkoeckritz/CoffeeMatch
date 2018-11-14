@@ -5,7 +5,6 @@ class Caffeine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: "Now then, do you prefer familiar flavors or something a bit more adventurous? Choose a collection below.",
       collections: []
     };
   }
@@ -46,7 +45,7 @@ class Caffeine extends Component {
   render() {
     return (
       <div className="caffeine">
-        <p>{this.state.question}</p>
+        <p>{this.props.text.question2}</p>
         <div className="content">
           <div className="grid">
             {this.state.collections}
