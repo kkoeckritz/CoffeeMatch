@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Caffeine.css";
 
-class Caffeine extends Component { 
+class Caffeine extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,15 +11,15 @@ class Caffeine extends Component {
   }
 
   componentDidMount() {
-    
+
     fetch(`/api/collections/${this.props.caffeine}`)
       .then(results => {
         console.log(results);
         return results.json();
       }).then(data => {
         let collections = data.map((collection) => {
-          return(
-            <figure 
+          return (
+            <figure
               className="effect-bubba z-depth-3"
               onClick={() => {
                 console.log(this.props);
@@ -28,31 +28,42 @@ class Caffeine extends Component {
               }}
               key={collection._id}
             >
-                <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02" />
-                <figcaption>
-                  <h2>{collection.name}</h2>
-                  {/* <p>{this.state.info[0]}</p> */}
-                  {/* <a href="/decaf">{collection.name}</a> */}
-                </figcaption>
+              <img src="" alt={collection.name} />
+              <figcaption>
+                <h2>{collection.name}</h2>
+                {/* <p>{this.state.info[0]}</p> */}
+                {/* <a href="/decaf">{collection.name}</a> */}
+              </figcaption>
             </figure>
           )
         })
-        this.setState({collections: collections});
+        this.setState({ collections: collections });
         console.log("state", this.state.collections);
       }
-    )
+      )
   }
 
   render() {
-    return(
+    return (
       <div className="caffeine">
         <p>{this.state.question}</p>
         <div className="content">
           <div className="grid">
             {this.state.collections}
+
+            <figure className="effect-bubba z-depth-3">
+              <img src="" alt="" />
+              <figcaption
+                onClick={() => this.props.history.goBack()}
+              >
+                <h2>Go Back</h2>
+                <p><i class="large material-icons">arrow_back</i></p>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
+
     )
   }
 }

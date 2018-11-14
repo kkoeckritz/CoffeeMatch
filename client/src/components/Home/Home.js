@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import {withRouter} from 'react-router-dom';
 
 class Home extends Component {
     constructor(props) {
@@ -13,12 +14,13 @@ class Home extends Component {
 
     render() {
         return (
+            <div className="container-fluid">
             <div className="question1">
                 <h5>{ this.state.question }</h5>
                 <div className="content">
                     <div className="grid">
                         <figure className="effect-bubba z-depth-3">
-                            <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02" />
+                            <img src="" alt="" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("decaf");
@@ -31,7 +33,7 @@ class Home extends Component {
                         </figure>
                         
                         <figure className="effect-bubba z-depth-3">
-                            <img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16" />
+                            <img src="" alt="" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("caffeine");
@@ -42,9 +44,31 @@ class Home extends Component {
                                 <p>{this.state.info[1]}</p>
                             </figcaption>
                         </figure>
+
+                        <figure className="effect-bubba z-depth-3">
+                            <img src="" alt="" />
+                            <figcaption
+                                onClick={() => this.props.history.goBack()}
+                            >
+                            <h2>Go Back</h2>
+                            <p><i class="large material-icons">arrow_back</i>
+                            </p>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
-            </div>            
+            </div>  
+
+            {/* <p className="center-align">
+            <div class="btn-floating btn-large waves-effect waves-light red">
+                <a class="waves-effect waves-light btn btn-floating btn-large red darken-1" ><i class="material-icons" onClick={() => this.props.history.goBack()}>arrow_back</i></a>
+            </div>
+            </p> */}
+
+            </div>  
+
+     
+            
         )
     }
 }
