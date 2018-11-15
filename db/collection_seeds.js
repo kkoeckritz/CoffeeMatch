@@ -9,7 +9,7 @@ mongoose.connect(
 var collectionSeed = [
   {
     name: "Rare & Reserve",
-    handle: "rarereserve",
+    handle: "reservecoffees",
     has_decaf: false,
     imgURL: "/assets/images/collectionTags/pour-over-coffee-to-order-at-cafe_925x"
   },
