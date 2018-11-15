@@ -8,10 +8,10 @@ class GetStarted extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <p className="getStarted">Not sure where to start? 
-		<br/>
+        <h5 className="getStarted">Not sure where to start?
         Let us help you discover new flavors, or find a favorite.
-            </p>
+            </h5>
+            <br/>
         <BrowserRouter>
           <Switch>
             <a href="/home" className="waves-effect waves-light btn-large red darken-3">Let's Get Started!</a>
