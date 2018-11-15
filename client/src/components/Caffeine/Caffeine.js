@@ -44,8 +44,8 @@ class Caffeine extends Component {
 
   render() {
     return (
-      <div className="caffeine">
-        <p>{this.props.text.question2}</p>
+      <div className="container caffeine">
+        <h5>{this.props.text.question2}</h5>
         <div className="content">
           <div className="grid">
             {this.state.collections}

@@ -46,7 +46,7 @@ class Tags extends Component {
   render() {
     return (
       <div className="caffeine">
-        <p>{this.props.text.question3}</p>
+        <h5>{this.props.text.question3}</h5>
         <div className="content">
           <div className="grid">
             {this.state.tags}
