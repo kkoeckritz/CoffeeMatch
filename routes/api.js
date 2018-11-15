@@ -165,10 +165,11 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
 });
 
 router.route("/tags/:collection/:caffeinated").get((req, res) => {
-  var collection = req.params.collection.replace("+", " ");
-  let query = { collection_handle: collection };
+  let query = { };
   if (req.params.caffeinated === "decaf") {
-    query = { collection_handle: collection, tags: { $all: ["decaf"] } };
+    query = { collection_handle: req.params.collection, tags: "decaf" };
+  } else {
+    query = { collection_handle: req.params.collection, tags: { $ne: "decaf" } };
   }
   db.Product.find(query)
   .then(productList => {
