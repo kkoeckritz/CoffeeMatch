@@ -5,7 +5,8 @@ var db = require("../models");
 
 var FILTERED_TAGS = [
   "decaf",
-  "subscription"
+  "subscription",
+  "coffee"
 ]
 
 /**
@@ -218,11 +219,24 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
         ));
 
         db.Tags.find({ tagName: { $in: Array.from(tagsSet) } })
-          .then(buckets => {
-            console.log(buckets);
+          .then(bucketModels => {
+            let bucketObj = {};
+            bucketModels.map(bucketModel => {
+              bucketObj[bucketModel.bucket] = bucketModel.imgURL;
+            });
+            console.log(bucketObj);
+            return bucketObj;
           })
-
-        res.json(Array.from(tagsSet));                     // convert JSON array and send
+          .then(bucketObj => {
+            buckets = []
+            Object.keys(bucketObj).map(bucketName => {
+              buckets.push({
+                name: bucketName,
+                url: bucketObj[bucketName]
+              });
+            });
+            res.json(Array.from(buckets));                     // convert JSON array and send
+          });
       });
     });
   })
