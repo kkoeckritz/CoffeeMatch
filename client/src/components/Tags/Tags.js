@@ -23,17 +23,17 @@ class Tags extends Component {
               className="effect-bubba z-depth-3"
               onClick={() => {
                 console.log(this.props);
-                this.props.setTag(tag);
+                this.props.setTag(tag.name);
                 this.props.history.push("/results");
               }}
-              key={tag}
+              key={tag.name}
             >
-              <img src={tag.imgURL} alt="" />
-              <figcaption>
-                <h2>{tag}</h2>
-                {/* <p>{this.state.info[0]}</p> */}
-                {/* <a href="/decaf">{collection.name}</a> */}
-              </figcaption>
+                <img src={tag.url} alt={tag.name} />
+                <figcaption>
+                  <h2>{tag.name}</h2>
+                  {/* <p>{this.state.info[0]}</p> */}
+                  {/* <a href="/decaf">{collection.name}</a> */}
+                </figcaption>
             </figure>
           )
         })

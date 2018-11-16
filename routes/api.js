@@ -3,6 +3,12 @@ const router = require("express").Router();
 
 var db = require("../models");
 
+var FILTERED_TAGS = [
+  "decaf",
+  "subscription",
+  "coffee"
+]
+
 /**
  * Route for getting collection information from shopify.
  * To be used in the CMS for adding collections to the questionnaire
@@ -47,6 +53,7 @@ router.route("/collections/:caffeine").get((req, res) => {
  */
 function getCollectionIdFromName(collectionHandle) {
   let url = `${process.env.SHOPIFY_URL}/admin/custom_collections.json?handle=${collectionHandle}`;
+  console.log(url);
   return new Promise((resolve, reject) => {
     axios.get(url).then((response) => {
       if (response.data.custom_collections.length === 1) {
@@ -164,6 +171,7 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
     });
 });
 
+/*
 router.route("/tags/:collection/:caffeinated").get((req, res) => {
   let query = { };
   if (req.params.caffeinated === "decaf") {
@@ -185,22 +193,51 @@ router.route("/tags/:collection/:caffeinated").get((req, res) => {
     res.json(Array.from(tagSet));
   });
 });
+*/
 
 /**
  * Route for getting of the product tags associated with a given collection
  */
-/*
-router.route("/tags/:collection").get((req, res) => {
+router.route("/tags/:collection/:caffeinated").get((req, res) => {
   getCollectionIdFromName(req.params.collection).then((id) => {
     getCollectsInCollection(id).then((collects) => {
       getProductsFromCollects(collects).then(products => {
+
+        let productsFiltered = [];
+        if (req.params.caffeinated == "decaf") {
+          productsFiltered = products.filter(p => p.tags.toLowerCase().includes("decaf"));
+        } else {
+          productsFiltered = products.filter(p => !p.tags.toLowerCase().includes("decaf"));
+        }
+
         let tagsSet = new Set();
-        products.map(product => (               // for each product
-          product.tags.split(",").map(tag => (  // split product tags string by comma
-            tagsSet.add(tag.trim()))            // add tag from tags string to set of tags
-          )
+        productsFiltered.map(product => (                  // for each product
+          product.tags
+            .split(",")                                    // split CSV string
+            .map(tag => tag.trim().toLowerCase())          // trim excess spaces and lower case
+            .filter(tag => FILTERED_TAGS.indexOf(tag) < 0) // if indexOf is -1, not a filtered tag
+            .map(tag => tagsSet.add(tag))                  // add tags to tag set
         ));
-        res.json(Array.from(tagsSet));          // convert set of tags to JSON array and send
+
+        db.Tags.find({ tagName: { $in: Array.from(tagsSet) } })
+          .then(bucketModels => {
+            let bucketObj = {};
+            bucketModels.map(bucketModel => {
+              bucketObj[bucketModel.bucket] = bucketModel.imgURL;
+            });
+            console.log(bucketObj);
+            return bucketObj;
+          })
+          .then(bucketObj => {
+            buckets = []
+            Object.keys(bucketObj).map(bucketName => {
+              buckets.push({
+                name: bucketName,
+                url: bucketObj[bucketName]
+              });
+            });
+            res.json(Array.from(buckets));                     // convert JSON array and send
+          });
       });
     });
   })
@@ -210,6 +247,5 @@ router.route("/tags/:collection").get((req, res) => {
     res.send(error);
   });
 });
-*/
 
 module.exports = router;
