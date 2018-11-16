@@ -27,7 +27,7 @@ class Caffeine extends Component {
               }}
               key={collection._id}
             >
-              <img src="" alt={collection.name} />
+              <img src={collection.imgURL} alt={collection.name} />
               <figcaption>
                 <h2>{collection.name}</h2>
                 {/* <p>{this.state.info[0]}</p> */}

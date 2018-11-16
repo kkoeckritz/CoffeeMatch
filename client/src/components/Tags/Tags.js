@@ -28,7 +28,7 @@ class Tags extends Component {
               }}
               key={tag}
             >
-              <img src="" alt={tag} />
+              <img src={tag.imgURL} alt="" />
               <figcaption>
                 <h2>{tag}</h2>
                 {/* <p>{this.state.info[0]}</p> */}
