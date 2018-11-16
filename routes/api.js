@@ -147,28 +147,39 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
 });
 */
 router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
-  let query = {
-    $and: [
-      {
-        collection_handle: req.params.collection
-      },
-      {
-        tags: req.params.tag
+  let calledRoute = `/api/products/${req.params.collection}/${req.params.tag}/${req.params.caffeinated}`;
+  console.log(`${calledRoute} called`);
+
+  db.Tags.find({ bucket: req.params.tag })
+    .then(bucketModels => {
+
+      let tagNames = bucketModels.map(bucket => bucket.tagName);
+      
+      console.log(`${calledRoute}: bucket(${req.params.tag}) = [${tagNames}]`);
+      let query = {
+        $and: [
+          { collection_handle: req.params.collection },
+          { $or: [] }
+        ]
+      };
+      tagNames.map(tag => {
+        query['$and'][1]['$or'].push({tags: tag})
+      });
+      if (req.params.caffeinated === "decaf") {
+        query['$and'].push({tags: "decaf"});
+      } else {
+        query["$and"].push({tags: {$ne: "decaf"} });
       }
-    ]
-  };
-  if (req.params.caffeinated === "decaf") {
-    query['$and'].push({tags: "decaf"});
-  }
-  else {
-    query["$and"].push({tags: {$ne: "decaf"} });
-  }
-  console.log(query);
-  db.Product.find(query)
-    .then(productList => {
-      console.log(productList);
-      res.json(productList)
+      console.log(`${calledRoute} query: ${JSON.stringify(query)}`);
+
+      db.Product.find(query)
+        .then(productList => {
+          console.log(productList);
+          res.json(productList)
+        });
     });
+
+
 });
 
 /*
