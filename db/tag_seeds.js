@@ -34,7 +34,7 @@ var tagSeed = [
   },{
     tagName: "caramel apple",
     bucket: "fruit",
-    imgURL: "/flavorTags/fruit-plate_925x.jpg"
+    imgURL: "/assets/images/flavorTags/fruit-plate_925x.jpg"
   },{
     tagName: "date",
     bucket: "fruit",
@@ -114,43 +114,44 @@ var tagSeed = [
   },{
     tagName: "molasses",
     bucket: "syrup",
-    imgURL: "/assets/images/flavorTags/Canva - Honey, Sweet, Syrup, Organic, Golden, Teaspoon, Pouring.jpg"
+    imgURL: "/assets/images/flavorTags/syrup.jpg"
   },{
     tagName: "honey",
     bucket: "syrup",
-    imgURL: "/assets/images/flavorTags/Canva - Honey, Sweet, Syrup, Organic, Golden, Teaspoon, Pouring.jpg"
+    imgURL: "/assets/images/flavorTags/syrup.jpg"
   },{
     tagName: "milk chocolate",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "chocolate",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "baker's chocolate",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "dark chocolate",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "caramel apple",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "almond brittle",
     bucket: "candy",
-    imgURL: "/assets/images/flavorTags/Canva - Chocolate Bar, Snack, Candy, Chocolate, Energy Bar.jpg"
+    imgURL: "/assets/images/flavorTags/candy.jpg"
   },{
     tagName: "gingerbread",
     bucket: "spice",
-    imgURL: "/assets/images/flavorTags/Canva - Coffee, Spices, Star Anise, Anise, Cinnamon.jpg"
+    imgURL: "/assets/images/flavorTags/spice.jpg"
   },{
     tagName: "cinnamon toast",
     bucket: "spice",
-    imgURL: "/assets/images/flavorTags/Canva - Coffee, Spices, Star Anise, Anise, Cinnamon.jpg"
+    imgURL: "/assets/images/flavorTags/spice.jpg"
+
   },
 ]
 

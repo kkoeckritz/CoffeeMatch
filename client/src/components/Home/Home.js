@@ -10,7 +10,7 @@ class Home extends Component {
                 <div className="content">
                     <div className="grid">
                         <figure className="effect-bubba z-depth-3">
-                            <img src="" alt="" />
+                            <img src="./assets/images/decaf.jpg" alt="decaf" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("decaf");
@@ -18,12 +18,12 @@ class Home extends Component {
                                 }}
                             >
                                 <h2>{this.props.choices[0]}</h2>
-                                <p>{this.props.info[0]}</p>
+                                {/* <p>{this.props.info[0]}</p> */}
                             </figcaption>
                         </figure>
                         
                         <figure className="effect-bubba z-depth-3">
-                            <img src="" alt="" />
+                            <img src="./assets/images/caffeine.jpg" alt="caffeine" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("caffeine");
@@ -31,7 +31,7 @@ class Home extends Component {
                                 }}
                             >
                                 <h2>{this.props.choices[1]}</h2>
-                                <p>{this.props.info[1]}</p>
+                                {/* <p>{this.props.info[1]}</p> */}
                             </figcaption>
                         </figure>
                     </div>

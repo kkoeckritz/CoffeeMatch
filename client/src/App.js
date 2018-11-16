@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      choices: ["Decaf & Pointless", "Caffeinated"],
+      choices: ["Decaf", "Caffeinated"],
       info: ["Description of decaf", "Description of Caffeine"],
       text: {
         question1: "First things first: Regular or Decaf?",
@@ -42,7 +42,6 @@ class App extends Component {
     return (
       <div>
         <NavBar /> 
-        
         <Routes
           choices={this.state.choices}
           info={this.state.choices}
