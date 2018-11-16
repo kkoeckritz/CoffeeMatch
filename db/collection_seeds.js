@@ -11,19 +11,25 @@ var collectionSeed = [
     name: "Rare & Reserve",
     handle: "reservecoffees",
     has_decaf: false,
-    imgURL: "/assets/images/collectionTags/pour-over-coffee-to-order-at-cafe_925x.jpg"
+    imgURL: "/assets/images/collectionTags/pour-over-coffee-to-order-at-cafe_925x.jpg",
+    description: "unique, often limited production"
+
   },
   {
     name: "Roaster's Selection",
     handle: "roastersselection",
     has_decaf: true,
-    imgURL: "/assets/images/collectionTags/hand-full-of-roasted-coffee_925x.jpg"
+    imgURL: "/assets/images/collectionTags/hand-full-of-roasted-coffee_925x.jpg",
+    description: "balanced, complex"
+
   },
   {
     name: "Casual Coffee",
     handle: "casualcoffee",
     has_decaf: false,
-    imgURL: "/assets/images/collectionTags/holding-coffee-in-bed_925x.jpg"
+    imgURL: "/assets/images/collectionTags/holding-coffee-in-bed_925x.jpg",
+    description: "easy to drink, familiar flavors"
+
   }
 ]
 

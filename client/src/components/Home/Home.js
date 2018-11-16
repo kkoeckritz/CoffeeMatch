@@ -6,11 +6,11 @@ class Home extends Component {
         return (
             <div className="container-fluid">
             <div className="question1">
-                <h5>{this.props.text.question1}</h5>
+                <h4>{this.props.text.question1}</h4>
                 <div className="content">
                     <div className="grid">
                         <figure className="effect-bubba z-depth-3">
-                            <img src="./assets/images/decaf.jpg" alt="decaf" />
+                            <img src="./assets/images/friends-cheers.jpg" alt="decaf" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("decaf");
@@ -23,7 +23,7 @@ class Home extends Component {
                         </figure>
                         
                         <figure className="effect-bubba z-depth-3">
-                            <img src="./assets/images/caffeine.jpg" alt="caffeine" />
+                            <img src="./assets/images/friends-drinking.jpg" alt="caffeine" />
                             <figcaption
                                 onClick={() => {
                                     this.props.setCaffeine("caffeine");

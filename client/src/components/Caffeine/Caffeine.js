@@ -45,13 +45,13 @@ class Caffeine extends Component {
   render() {
     return (
       <div className="container caffeine">
-        <h5>{this.props.text.question2}</h5>
+        <h4>{this.props.text.question2}</h4>
         <div className="content">
           <div className="grid">
             {this.state.collections}
 
             <figure className="effect-bubba z-depth-3">
-              <img src="" alt="" />
+              <img class="" src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
                 onClick={() => this.props.history.goBack()}
               >

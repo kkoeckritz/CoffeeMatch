@@ -44,13 +44,13 @@ class Results extends Component {
   render() {
     return (
       <div className="caffeine">
-        <h5>{this.props.text.result}</h5>
+        <h4>{this.props.text.result}</h4>
         <div className="content">
           <div className="grid">
             {this.state.products}
 
             <figure className="effect-bubba z-depth-3">
-              <img src="" alt="" />
+              <img src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
                 onClick={() => this.props.history.goBack()}
               >

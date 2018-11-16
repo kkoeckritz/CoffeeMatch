@@ -46,13 +46,13 @@ class Tags extends Component {
   render() {
     return (
       <div className="caffeine">
-        <h5>{this.props.text.question3}</h5>
+        <h4>{this.props.text.question3}</h4>
         <div className="content">
           <div className="grid">
             {this.state.tags}
 
             <figure className="effect-bubba z-depth-3">
-              <img src="" alt="" />
+              <img src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
                 onClick={() => this.props.history.goBack()}
               >
