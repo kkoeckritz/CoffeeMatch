@@ -5,10 +5,10 @@ class Decaf extends Component {
     render() {
         return (
             <div className="decaf">
-                <h5>{this.props.text.question2}</h5>
+                <h4>{this.props.text.question2}</h4>
 
                 <figure className="effect-bubba z-depth-3">
-                    <img src="" alt="" />
+                    <img src="./assets/images/coffee-in-sun.jpg" alt="" />
                     <figcaption
                         onClick={() => this.props.history.goBack()}
                     >

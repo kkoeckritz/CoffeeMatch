@@ -7,10 +7,10 @@ class GetStarted extends Component {
   render(props) {
     return (
       <div className="App">
-        <header className="App-header">
-        <h5 className="getStarted">Not sure where to start?
+        <header className="App-header container-fluid">
+        <h4 className="getStarted">Not sure where to start?
         Let us help you discover new flavors, or find a favorite.
-            </h5>
+            </h4>
             <br/>
         <BrowserRouter>
           <Switch>
