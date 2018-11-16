@@ -9,7 +9,7 @@ mongoose.connect(
 var productSeed = [
   {
     name: "BRAZIL, NELSON RIBEIRO & LUCA ALLEGRO, NATURAL PROCESS",
-    collection_handle: "rarereserve",
+    collection_handle: "reservecoffees",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/brazil-fazenda-floresta-chapada-diamantina",
     tags: [
       "chocolate",
@@ -21,7 +21,7 @@ var productSeed = [
   },
   {
     name: "COLOMBIA, LA ILUSION, ROSEVAL ORTIZ, NATURAL PROCESS",
-    collection_handle: "rarereserve",
+    collection_handle: "reservecoffees",
     url: "https://www.soulworkcoffee.com/collection_names/all-day-every-day/products/colombia-la-ilusion",
     tags: [
       "chocolate",

@@ -1,17 +1,23 @@
 .caffeine {
     position: relative;
-    top: 100px;
+    top: 70px;
     min-height: 70vh;
     text-align: center;
     font-size: 20px;
     color: white;
 }
 
-figure.effect-bubba {
-	background: #e53935;
-}
+.back {
+	position: fixed; /* or absolute */
+	top: 50%;
+	left: 0%;
+  }
 
-figure.effect-bubba img {
+/* figure.effect-bubba {
+	background: #e53935;
+} */
+
+/* figure.effect-bubba img {
 	opacity: 0.7;
 	-webkit-transition: opacity 0.35s;
 	transition: opacity 0.35s;
@@ -19,7 +25,7 @@ figure.effect-bubba img {
 
 figure.effect-bubba:hover img {
 	opacity: 0.4;
-}
+} */
 
 figure.effect-bubba figcaption::before,
 figure.effect-bubba figcaption::after {
@@ -89,7 +95,7 @@ figure.effect-bubba:hover p {
 }
 
 /* Common style */
-.grid figure {
+/* .grid figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
@@ -101,7 +107,7 @@ figure.effect-bubba:hover p {
 	background: #e53935;
 	text-align: center;
 	cursor: pointer;
-}
+} */
 
 .grid figure img {
 	position: relative;
@@ -187,7 +193,7 @@ figure.effect-bubba:hover p {
 	font-family: 'Raleway', Arial, sans-serif;
 } */
 
-a {
+/* a {
 	outline: none;
 	color: #e53935;
 	text-decoration: none;
@@ -195,7 +201,7 @@ a {
 
 a:hover, a:focus {
 	color: #e53935;
-}
+} */
 
 section {
 	padding: 1em;
@@ -317,7 +323,7 @@ section {
 	font-size: 120%;
 }
 
-.related > a {
+/* .related > a {
 	display: inline-block;
 	margin: 20px 10px;
 	padding: 25px;
@@ -327,7 +333,7 @@ section {
 
 .related a:hover {
 	border-color: #e53935;
-}
+} */
 
 .related a img {
 	max-width: 100%;

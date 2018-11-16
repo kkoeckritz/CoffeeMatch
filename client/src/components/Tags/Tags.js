@@ -1,25 +1,25 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Tags.css";
 
-class Tags extends Component { 
+class Tags extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: "You're almost done! Which flavor profile most appeals to you?",
       tags: []
     };
   }
 
   componentDidMount() {
-    
+
     fetch(`/api/tags/${this.props.collection}/${this.props.caffeine}`)
       .then(results => {
         console.log(results);
         return results.json();
       }).then(data => {
         let tags = data.map((tag) => {
-          return(
-            <figure 
+
+          return (
+            <figure
               className="effect-bubba z-depth-3"
               onClick={() => {
                 console.log(this.props);
@@ -37,19 +37,30 @@ class Tags extends Component {
             </figure>
           )
         })
-        this.setState({tags: tags});
+        this.setState({ tags: tags });
         console.log("state", this.state.tags);
       }
-    )
+      )
   }
 
   render() {
-    return(
+    return (
       <div className="caffeine">
-        <p>{this.state.question}</p>
+        <h5>{this.props.text.question3}</h5>
         <div className="content">
           <div className="grid">
             {this.state.tags}
+
+            <figure className="effect-bubba z-depth-3">
+              <img src="" alt="" />
+              <figcaption
+                onClick={() => this.props.history.goBack()}
+              >
+                <h2>Go Back</h2>
+                <p><i class="large material-icons">arrow_back</i></p>
+              </figcaption>
+            </figure>
+
           </div>
         </div>
       </div>

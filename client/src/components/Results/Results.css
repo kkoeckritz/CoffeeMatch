@@ -1,15 +1,15 @@
 .caffeine {
     position: relative;
-    top: 100px;
+    top: 70px;
     min-height: 70vh;
     text-align: center;
     font-size: 20px;
     color: white;
 }
-
+/* 
 figure.effect-bubba {
 	background: #e53935;
-}
+} */
 
 figure.effect-bubba img {
 	opacity: 0.7;
@@ -98,7 +98,7 @@ figure.effect-bubba:hover p {
 	max-width: 480px;
 	max-height: 360px;
 	width: 48%;
-	background: #e53935;
+	/* background: #e53935; */
 	text-align: center;
 	cursor: pointer;
 }
@@ -187,7 +187,7 @@ figure.effect-bubba:hover p {
 	font-family: 'Raleway', Arial, sans-serif;
 } */
 
-a {
+/* a {
 	outline: none;
 	color: #e53935;
 	text-decoration: none;
@@ -195,7 +195,7 @@ a {
 
 a:hover, a:focus {
 	color: #e53935;
-}
+} */
 
 section {
 	padding: 1em;
@@ -317,7 +317,7 @@ section {
 	font-size: 120%;
 }
 
-.related > a {
+/* .related > a {
 	display: inline-block;
 	margin: 20px 10px;
 	padding: 25px;
@@ -327,7 +327,7 @@ section {
 
 .related a:hover {
 	border-color: #e53935;
-}
+} */
 
 .related a img {
 	max-width: 100%;

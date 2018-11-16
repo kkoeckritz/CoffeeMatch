@@ -1,15 +1,14 @@
 .caffeine {
     position: relative;
-    top: 100px;
     min-height: 70vh;
     text-align: center;
     font-size: 20px;
     color: white;
 }
 
-figure.effect-bubba {
+/* figure.effect-bubba {
 	background: #e53935;
-}
+} */
 
 figure.effect-bubba img {
 	opacity: 0.7;
@@ -97,10 +96,12 @@ figure.effect-bubba:hover p {
 	min-width: 320px;
 	max-width: 480px;
 	max-height: 360px;
+	height: 250px;
 	width: 48%;
-	background: #e53935;
+	background: #212121;
 	text-align: center;
 	cursor: pointer;
+	
 }
 
 .grid figure img {
@@ -147,6 +148,7 @@ figure.effect-bubba:hover p {
 .grid figure h2 {
 	word-spacing: -0.15em;
 	font-weight: 300;
+	
 }
 
 .grid figure h2 span {
@@ -156,6 +158,8 @@ figure.effect-bubba:hover p {
 .grid figure h2,
 .grid figure p {
 	margin: 0;
+	position: relative;
+	top: -45px;
 }
 
 .grid figure p {

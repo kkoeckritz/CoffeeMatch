@@ -151,6 +151,7 @@ var tagSeed = [
     tagName: "cinnamon toast",
     bucket: "spice",
     imgURL: "/assets/images/flavorTags/spice.jpg"
+
   },
 ]
 
