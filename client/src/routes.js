@@ -6,6 +6,7 @@ import GetStarted from './components/GetStarted/GetStarted';
 import Tags from './components/Tags';
 import Caffeine from './components/Caffeine/Caffeine';
 import Results from './components/Results';
+import Admin from './components/Admin';
 
 const Routes = (props) =>(
     <BrowserRouter>
@@ -22,6 +23,7 @@ const Routes = (props) =>(
             <Route 
                 exact path='/results' 
                 render={(routeProps) => <Results {...routeProps} {...props} />} />
+            <Route exact path='/admin' component={Admin} />
         </Switch>
     </BrowserRouter>
 )
