@@ -30,7 +30,7 @@ class Caffeine extends Component {
               <img src={collection.imgURL} alt={collection.name} />
               <figcaption>
                 <h2>{collection.name}</h2>
-                {/* <p>{this.state.info[0]}</p> */}
+                <p>{collection.description}</p>
                 {/* <a href="/decaf">{collection.name}</a> */}
               </figcaption>
             </figure>
