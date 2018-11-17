@@ -63,7 +63,7 @@ figure.effect-bubba h2 {
 }
 
 figure.effect-bubba p {
-	padding: 20px 2.5em;
+	padding: 10px;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;

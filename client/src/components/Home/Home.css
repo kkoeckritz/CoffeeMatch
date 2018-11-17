@@ -54,8 +54,8 @@ figure.effect-bubba figcaption::after {
 	transform: scale(1,0);
 }
 
-figure.effect-bubba h2 {
-	padding-top: 10%;
+figure.effect-bubba .choice {
+	padding-top: 23%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,-20px,0);
@@ -63,7 +63,6 @@ figure.effect-bubba h2 {
 }
 
 figure.effect-bubba p {
-	padding: 20px 2.5em;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;

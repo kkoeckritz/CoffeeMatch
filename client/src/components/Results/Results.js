@@ -24,7 +24,7 @@ class Results extends Component {
             >
               <img src={product.image} alt={product.name} />
               <figcaption>
-                <h5>{product.name}</h5>
+                <h2 class="result">{product.name}</h2>
                 {/* <p>{this.state.info[0]}</p> */}
                 <a href={product.url} target="_blank">{product.name}</a>
               </figcaption>

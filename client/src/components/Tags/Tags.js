@@ -30,8 +30,8 @@ class Tags extends Component {
             >
                 <img src={tag.url} alt={tag.name} />
                 <figcaption>
-                  <h2>{tag.name}</h2>
-                  {/* <p>{this.state.info[0]}</p> */}
+                  <h2 class="tag">{tag.name}</h2>
+                  {/* <p></p> */}
                   {/* <a href="/decaf">{collection.name}</a> */}
                 </figcaption>
             </figure>
