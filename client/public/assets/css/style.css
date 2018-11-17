@@ -1,13 +1,13 @@
 p {
 	padding-left: 30px;
-  }
-  
-  .about {
-	text-align: center;
-  }
+}
 
-  html, 
-  body {
+.about {
+	text-align: center;
+}
+
+html, 
+body {
 	background-image: linear-gradient(to right bottom, #131212, #242222, #353333, #474545, #5a5858);
 	/* background-image: url("../images/bg8_small.png"); */
 	background-repeat: repeat;
@@ -16,9 +16,13 @@ p {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-	}
+}
 
+main {
+	flex: 1 0 auto;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+.material-tooltip {
+	left: 0px;
+	right: 0px;
+}

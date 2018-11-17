@@ -1,18 +1,9 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-        
-
-$(document).ready(function(){
-    $('.tabs').tabs();
-  });
-
-  $(document).ready(function(){
-    $('.fixed-action-btn').floatingActionButton();
-  });
-
-
-  function go() {
+$(document).ready(function() {
+  $('.sidenav').sidenav();
+  $('.tabs').tabs();
+  $('.fixed-action-btn').floatingActionButton();
+  // $('.tooltipped').tooltip();
+   function go() {
     const fileInput = document.getElementById('file');
     const outputDiv = document.getElementById('output');
     let html = '';
@@ -21,3 +12,6 @@ $(document).ready(function(){
     }
     outputDiv.textContent = html;
   }
+  
+});
+
