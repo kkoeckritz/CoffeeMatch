@@ -22,6 +22,8 @@ const Routes = (props) =>(
             <Route 
                 exact path='/results' 
                 render={(routeProps) => <Results {...routeProps} {...props} />} />
+            <Route exact path="/admin" 
+            render={() => {window.location.href="admin.html"}} />    
         </Switch>
     </BrowserRouter>
 )
