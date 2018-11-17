@@ -14,7 +14,7 @@ class App extends Component {
       text: {
         question1: "Looking to cozy up and chill, or want to get your blood pumping? Ehem, we mean, do you want decaf or caffeinated coffee?!",
         question2: "Now then, do you prefer something casual, or perhaps a bit more adventurous? For real, get your mind out of the gutter.",
-        question3: "Great, now that your mind's back on coffee, which of these flavors to you find most appealing?",
+        question3: "Great, now that your mind's back on coffee, which of these flavors do you find most appealing?",
         result: "Yay! Here are your potential SoulMates. Enjoy your first date ;) "
       },
       caffeine: "caffeine",
