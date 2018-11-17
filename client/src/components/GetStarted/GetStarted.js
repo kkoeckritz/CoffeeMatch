@@ -7,14 +7,14 @@ class GetStarted extends Component {
   render(props) {
     return (
       <div className="App">
-        <header className="App-header container-fluid">
+        <header className="App-header container center">
         <h4 className="getStarted">Not sure where to start?	Let us help you find your SoulMate in three easy steps! No… not your human soul mate. You're on your own with that. We're not miracle workers, we just make great coffee.
 
             </h4>
             <br/>
         <BrowserRouter>
           <Switch>
-            <a href="/home" className="waves-effect waves-light btn-large red darken-3">find your "SoulMate"</a>
+            <a href="/home" className="waves-effect waves-light btn-large red darken-3">find your SoulMate</a>
          {/* <Link to='/home'> <img src={logo} className="App-logo" alt="logo" />
         </Link> */}
         </Switch>

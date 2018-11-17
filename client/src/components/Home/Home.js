@@ -4,7 +4,7 @@ import "./Home.css";
 class Home extends Component {
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container">
             <div className="question1">
                 <h4>{this.props.text.question1}</h4>
                 <div className="content">
