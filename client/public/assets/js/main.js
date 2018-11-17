@@ -1,13 +1,6 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-        
-
-$(document).ready(function(){
-    $('.tabs').tabs();
-  });
-
-  $(document).ready(function(){
-    $('.fixed-action-btn').floatingActionButton();
-  });
- 
+$(document).ready(function() {
+  $('.sidenav').sidenav();
+  $('.tabs').tabs();
+  $('.fixed-action-btn').floatingActionButton();
+  // $('.tooltipped').tooltip();
+});
