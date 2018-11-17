@@ -4,7 +4,8 @@
     min-height: 70vh;
     text-align: center;
     font-size: 20px;
-    color: white;
+	color: white;
+
 }
 /* 
 figure.effect-bubba {
@@ -18,7 +19,7 @@ figure.effect-bubba img {
 }
 
 figure.effect-bubba:hover img {
-	opacity: 0.4;
+	opacity: 0.5;
 }
 
 figure.effect-bubba figcaption::before,
@@ -108,7 +109,7 @@ figure.effect-bubba:hover p {
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-	opacity: 0.8;
+	opacity: 0.3;
 }
 
 .grid figure figcaption {
@@ -161,6 +162,7 @@ figure.effect-bubba:hover p {
 .grid figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
+
 }
 
 @media screen and (max-width: 50em) {
@@ -205,6 +207,10 @@ section {
 .content {
 	margin: 0 auto;
 /* 	max-width: 1300px; */
+}
+
+.content h5 {
+	color: white;
 }
 
 .content > h2 {
