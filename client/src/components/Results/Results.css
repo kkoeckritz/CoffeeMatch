@@ -49,16 +49,17 @@ figure.effect-bubba figcaption::after {
 	transform: scale(1,0);
 }
 
-figure.effect-bubba h2 {
-	padding-top: 10%;
+figure.effect-bubba .result {
+	font-size: 25px;
+	padding-top: 20%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,-20px,0);
 	transform: translate3d(0,-20px,0);
 }
 
-figure.effect-bubba p {
-	padding: 20px 2.5em;
+
+figure.effect-bubba p{
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
@@ -113,7 +114,7 @@ figure.effect-bubba:hover p {
 }
 
 .grid figure figcaption {
-	padding: 2em;
+
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 1.25em;
