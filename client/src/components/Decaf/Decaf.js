@@ -4,7 +4,7 @@ import "./Decaf.css";
 class Decaf extends Component {
     render() {
         return (
-            <div className="decaf">
+            <div className="decaf container">
                 <h4>{this.props.text.question2}</h4>
 
                 <figure className="effect-bubba z-depth-3">

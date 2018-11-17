@@ -43,7 +43,7 @@ class Results extends Component {
 
   render() {
     return (
-      <div className="caffeine">
+      <div className="caffeine container center">
         <h4>{this.props.text.result}</h4>
         <div className="content">
           <div className="grid">
