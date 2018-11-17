@@ -192,12 +192,12 @@ figure.effect-bubba:hover p {
 
 a {
 	outline: none;
-	color: #e53935;
+	color: white;
 	text-decoration: none;
 }
 
 a:hover, a:focus {
-	color: #e53935;
+	color: #e0e0e0;
 }
 
 section {
