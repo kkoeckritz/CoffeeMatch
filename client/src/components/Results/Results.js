@@ -20,17 +20,13 @@ class Results extends Component {
           return (
             <figure
               className="effect-bubba z-depth-3"
-              onClick={() => {
-                console.log(this.props);
-                this.props.history.push("/tags");
-              }}
-              key={product._id}
+              key={product.name}
             >
-              <img src="" alt={product.name} />
+              <img src={product.image} alt={product.name} />
               <figcaption>
                 <h5>{product.name}</h5>
                 {/* <p>{this.state.info[0]}</p> */}
-                {/* <a href="/decaf">{collection.name}</a> */}
+                <a href={product.url} target="_blank">{product.name}</a>
               </figcaption>
             </figure>
           )
