@@ -18,5 +18,9 @@ header, main, footer {
   @media only screen and (max-width : 992px) {
     header, main, footer {
       padding-left: 0;
+
+    }
+    .brand-logo {
+        text-align: center;
     }
   }
