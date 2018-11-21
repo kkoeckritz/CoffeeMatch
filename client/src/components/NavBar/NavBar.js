@@ -19,7 +19,7 @@ const NavBar = props =>
                                    className="brand-logo left tooltipped" 
                                    data-position="bottom" 
                                    data-tooltip="Home">
-                                <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
+                                <img className="logo left" src={small_logo} alt="Soul Work Coffee"/>
                                 </a>
                                 <a href="/" className="big_letter fancy_letter right">SoulMate</a>
                             </div>
