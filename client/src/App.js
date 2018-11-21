@@ -1,9 +1,13 @@
+import ReactGA from 'react-ga';
+
 import React, { Component } from 'react';
 
 import NavBar from './components/NavBar';
 // import Footer from './components/Footer';
 
 import Routes from './routes';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -20,8 +24,10 @@ class App extends Component {
       caffeine: "caffeine",
       collectionHandle: "none",
       tag: "none"
+    }
+    ReactGA.initialize('UA-129570756-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
-}
 
   setCaffeine = (caffeineToSet) => {
     console.log(`setCaffeine(${caffeineToSet})`);
@@ -37,6 +43,7 @@ class App extends Component {
     console.log(`setTag(${tagToSet})`);
     this.setState({ tag: tagToSet});
   }
+
 
   render() {
     return (
