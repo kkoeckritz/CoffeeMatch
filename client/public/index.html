@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="https://cdn.shopify.com/s/files/1/2292/9477/files/Soul_Work_Logo_Final_9-29_Color_32x32.png?v=1511642030">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://cdn.shopify.com/s/files/1/2292/9477/files/Soul_Work_Logo_Final_9-29_Color_32x32.png?v=1511642030">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Sedgwick+Ave" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
 
-    <!--Import icons, fonts, Materialize style-->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Sedgwick+Ave" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.js"></script>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <title>Soul Work SoulMate - Find the Brew for You</title>
+</head>
+<body>
+  <noscript>
+    I need Javascript to find your match. Make sure it's enabled and reload the page.
+  </noscript>
+  <div id="root"></div>
+  
+  <div class="fixed-action-btn direction-top active" style="bottom: 45px; right: 24px;">
+    <a id="menu" class="waves-effect waves-light btn btn-floating btn-large red darken-1" ><i class="icon-coffee" onclick="discover()">menu</i></a>
     
-    <title>Soul Work SoulMate - Find the One for You</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    
-<div class="fixed-action-btn direction-top active" style="bottom: 45px; right: 24px;">
-        <a id="menu" class="waves-effect waves-light btn btn-floating btn-large red darken-1" ><i class="icon-coffee" onclick="discover()">menu</i></a>
-    
-      
-      <!-- Tap Target Structure -->
-      <div class="tap-target" data-target="menu">
-        <div class="tap-target-content top">
-          <h5 class="about" style="text-align: center;">SoulMate</h5>
-          <p style="padding-left:30px;">Our parents and grandparents drank coffee to caffeinate (not that there's anything wrong with that). We're lucky to explore all the flavors and aromas that expertly grown and roasted coffee has to offer.</p>
+    <!-- Tap Target Structure -->
+    <div class="tap-target" data-target="menu">
+      <div class="tap-target-content top">
+        <h5 class="about" style="text-align: center;">SoulMate</h5>
+        <p style="padding-left:30px;">Our parents and grandparents drank coffee to caffeinate (not that there's anything wrong with that). We're lucky to explore all the flavors and aromas that expertly grown and roasted coffee has to offer.</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="page-footer transparent z-depth-0">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          
         </div>
       </div>
     </div>
-
-    <footer class="page-footer transparent z-depth-0">
+    <div class="footer-copyright">
       <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
         © 2018 Copyright SoulMate
         <a class="grey-text text-lighten-4 right" href="https://www.soulworkcoffee.com/">Soul Work Coffee</a>
-        </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+  
+</body>
 
-  </body>
+<script>
+  $(document).ready(function () {
+    $('.tap-target').tapTarget()
+    
+    $('.btn').on('change', function() {
+      $('.tap-target').tapTarget('open')
+    })  
+  })
   
-  <script>
-   $(document).ready(function () {
-  $('.tap-target').tapTarget()
+  function discover() {
+    
+    var elem = document.querySelectorAll('.tap-target');
+    console.log('elem', elem);
+    
+    var instance = M.TapTarget.getInstance(elem[0]);
+    console.log('getInstance', instance);
+    
+    instance.open();
+    
+  }
   
-  $('.btn').on('change', function() {
-     $('.tap-target').tapTarget('open')
-  })  
-})
-
-function discover() {
-  
-  var elem = document.querySelectorAll('.tap-target');
-  console.log('elem', elem);
-  
-  var instance = M.TapTarget.getInstance(elem[0]);
-  console.log('getInstance', instance);
-  
-  instance.open();
-  
-}
-
-  </script>
-	<script type="text/javascript" src="./assets/js/main.js"></script>
+</script>
+<script type="text/javascript" src="./assets/js/main.js"></script>
 </html>

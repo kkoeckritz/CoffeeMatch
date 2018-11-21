@@ -12,8 +12,14 @@ const NavBar = props =>
                     <div className="container">
                         <div className="row">
                             <div className="col m12">                            
-                                <a href="https://www.soulworkcoffee.com/" target="_blank" id="nav_name" className="brand-logo left tooltipped" data-position="bottom" data-tooltip="Home">
-                                    <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
+                                <a href="https://www.soulworkcoffee.com/" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   id="nav_name" 
+                                   className="brand-logo left tooltipped" 
+                                   data-position="bottom" 
+                                   data-tooltip="Home">
+                                <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
                                 </a>
                                 <a href="/" className="big_letter fancy_letter right">SoulMate</a>
                             </div>
