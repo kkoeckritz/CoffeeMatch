@@ -29,13 +29,34 @@ nav {
 
 @media screen and (max-width: 595px) {
 	.big_letter {
-        position: relative;
-        left: 200px;
+        font-size: 30px;
     }
+    
+    h4 {
+        text-align: center;
+        padding: 30px;
+        font-size: 20px;
+    }
+    .brand-logo {
+        width: 90%;
+        padding: 10px;
+    }
+}
+
+/* @media screen and (max-width: 370px) {
+	.big_letter {
+        position: relative;
+        text-align: center;
+    }
+
+    .brand-logo {
+        display: none;
+    }
+
     
     h4 {
         position: relative;
         padding: 30px;
-        font-size: 20px;
+        font-size: 10px;
     }
-}
+} */

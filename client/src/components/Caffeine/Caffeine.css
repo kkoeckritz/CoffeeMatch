@@ -48,8 +48,8 @@ figure.effect-bubba figcaption::before {
 }
 
 figure.effect-bubba figcaption::after {
-	border-right: 1px solid #fff;
-	border-left: 1px solid #fff;
+	border-right: 1px solid red;
+	border-left: 1px solid red;
 	-webkit-transform: scale(1,0);
 	transform: scale(1,0);
 }
@@ -385,7 +385,9 @@ body #cda-remove {
 	} */
 	
 	figure.effect-bubba .collectionStuff {
-		padding-top: 21%;
+	
+	
+		padding-top:27%;
 		-webkit-transition: -webkit-transform 0.35s;
 		transition: transform 0.35s;
 		-webkit-transform: translate3d(0,-20px,0);
@@ -393,10 +395,25 @@ body #cda-remove {
 	}
 
 	.back {
-		padding-top: 24%;
+		padding-top: 28%;
 		-webkit-transition: -webkit-transform 0.35s;
 		transition: transform 0.35s;
 		-webkit-transform: translate3d(0,-20px,0);
 		transform: translate3d(0,-20px,0);
 	}
+
+
+
+	/* .content {
+		position: relative;
+		top: -20px;
+		text-align: center;
+ 
+	} */
+/* 
+	.grid {
+		position: relative;
+		top: 1000px;
+
+	} */
 }

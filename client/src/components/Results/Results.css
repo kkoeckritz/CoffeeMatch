@@ -393,6 +393,17 @@ body #cda-remove {
 		transform: translate3d(0,-20px,0);
 	}
 
-
+	figure.effect-bubba figcaption::before,
+figure.effect-bubba figcaption::after {
+	position: absolute;
+	top: 59px;
+	right: 20px;
+	bottom: 10px;
+	left: 20px;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
 
 }
