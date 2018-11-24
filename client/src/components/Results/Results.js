@@ -48,7 +48,7 @@ class Results extends Component {
             <figure className="effect-bubba z-depth-3">
               <img src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
-                onClick={() => this.props.history.goBack()}
+                onClick={() => this.props.history.goBack()} className="back"
               >
                 <h2>Go Back</h2>
                 <p><i class="large material-icons">arrow_back</i></p>

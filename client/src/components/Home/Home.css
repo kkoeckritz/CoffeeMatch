@@ -374,3 +374,20 @@ body #cda-remove {
 		display: none;
 	}
 }
+
+@media screen and (max-width: 595px) {
+
+    h2 {
+		position: relative;
+		top: 100px;
+        font-size: 40px;
+	}
+	
+	figure.effect-bubba .choice {
+		padding-top: 39%;
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+		-webkit-transform: translate3d(0,-20px,0);
+		transform: translate3d(0,-20px,0);
+	}
+}

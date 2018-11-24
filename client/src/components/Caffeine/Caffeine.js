@@ -28,7 +28,7 @@ class Caffeine extends Component {
               key={collection._id}
             >
               <img src={collection.imgURL} alt={collection.name} />
-              <figcaption>
+              <figcaption className="collectionStuff">
                 <h2>{collection.name}</h2>
                 <p>{collection.description}</p>
                 {/* <a href="/decaf">{collection.name}</a> */}
@@ -53,7 +53,7 @@ class Caffeine extends Component {
             <figure className="effect-bubba z-depth-3">
               <img class="" src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
-                onClick={() => this.props.history.goBack()}
+                onClick={() => this.props.history.goBack()} className="back"
               >
                 <h2>Go Back</h2>
                 <p><i class="large material-icons">arrow_back</i></p>

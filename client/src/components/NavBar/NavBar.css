@@ -3,14 +3,39 @@ nav {
     
 }
 
+
 .logo{
     padding-top: 32px;
     width: 50%;
 }
 
 .big_letter {
+    position: relative;
+    top: 20px;
     font-family: 'Kaushan Script', cursive;
     font-size: 40px;
     font-weight: bolder;
-    padding-top: 17px;
+    
+    
+}
+
+
+/* @media screen and (max-width: 550px) {
+	.big_letter {
+        position: relative;
+        left: 250px;
+	}
+} */
+
+@media screen and (max-width: 595px) {
+	.big_letter {
+        position: relative;
+        left: 200px;
+    }
+    
+    h4 {
+        position: relative;
+        padding: 30px;
+        font-size: 20px;
+    }
 }
