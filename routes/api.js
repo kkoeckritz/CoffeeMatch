@@ -43,7 +43,6 @@ router.route("/collections/:caffeine").get((req, res) => {
     });
 });
 
-
 /**
  * Route for getting products associated with a collection and tag
  * Gets all products for given collection, then does some string

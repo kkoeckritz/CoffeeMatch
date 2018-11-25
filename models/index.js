@@ -4,4 +4,5 @@ module.exports = {
   User: require("./users"),
   Result: require("./results"),
   Product: require("./products"),
+  Stats: require("./stats")
 };
