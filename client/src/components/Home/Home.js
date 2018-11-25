@@ -30,7 +30,7 @@ class Home extends Component {
                                     this.props.history.push('/caffeine');
                                 }}
                             >
-                                <h2 class="choice">{this.props.choices[1]}</h2>
+                                <h2 className="choice">{this.props.choices[1]}</h2>
                                 {/* <p>{this.props.info[1]}</p> */}
                             </figcaption>
                         </figure>

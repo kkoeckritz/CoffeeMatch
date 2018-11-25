@@ -52,6 +52,7 @@ router.route("/collections/:caffeine").get((req, res) => {
 router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
   let calledRoute = `/api/products/${req.params.collection}/${req.params.tag}/${req.params.caffeinated}`;
   console.log(`${calledRoute} called`);
+
   shopify.getCollectionIdFromName(req.params.collection).then((id) => {
     shopify.getCollectsInCollection(id).then((collects) => {
       shopify.getProductsFromCollects(collects).then(products => {
@@ -88,21 +89,6 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
       }).catch(error => res.send(error));
     }).catch(error => res.send(error));
   }).catch(error => res.send(error));
-
-  // send params to admin db
-  db.Stats.collecton.insertOne({
-    caffeinated: req.params.caffeinated,
-    collection_handle: req.params.collection,
-    bucket: req.params.tag
-  })
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
 });
 
 /**
