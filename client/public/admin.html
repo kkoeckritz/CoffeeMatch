@@ -41,6 +41,7 @@
             <li class="tab"><a class="active" href="#test2">Users</a></li>
             <li class="tab"><a href="#test3">Questions</a></li>
             <li class="tab"><a href="#test4">Images</a></li>
+            <li class="tab"><a href="#test5">Collections</a></li>
           </ul>
         </div>
       </nav>
@@ -60,7 +61,24 @@
           <input id="file" type="file" multiple />
           <button onClick="go()">Go</button>
           <div id="output"></div>
-    </div>
+      </div>
+      <div id="test5" class="col s12">
+        <table id="enabled-collections-table">
+          <thead>
+            <th>Enabled Collections</th>
+            <th>Remove</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <br />
+        <table id="available-collections-table">
+          <thead>
+            <th>Available Collections</th>
+            <th>Add</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
@@ -85,4 +103,5 @@
 
   </body>
 	<script type="text/javascript" src="./assets/js/main.js"></script>
+	<script type="text/javascript" src="./assets/js/admin.js"></script>
 </html>
