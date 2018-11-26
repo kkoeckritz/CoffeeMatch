@@ -53,6 +53,19 @@ router.route("/products/:collection/:tag/:caffeinated").get((req, res) => {
   let calledRoute = `/api/products/${req.params.collection}/${req.params.tag}/${req.params.caffeinated}`;
   console.log(`${calledRoute} called`);
 
+  // send params to admin db
+  db.Stats.create({
+    caffeinated: req.params.caffeinated,
+    collection_handle: req.params.collection,
+    bucket: req.params.tag
+  })
+  .then(data => {
+    console.log("STATS: " + data.result.n + " records inserted!");
+  })
+  .catch(err => {
+    console.error("STATS: " + err);
+  });
+
   shopify.getCollectionIdFromName(req.params.collection).then((id) => {
     shopify.getCollectsInCollection(id).then((collects) => {
       shopify.getProductsFromCollects(collects).then(products => {
