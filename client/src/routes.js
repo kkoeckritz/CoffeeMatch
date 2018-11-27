@@ -6,6 +6,7 @@ import GetStarted from './components/GetStarted/GetStarted';
 import Tags from './components/Tags';
 import Caffeine from './components/Caffeine/Caffeine';
 import Results from './components/Results';
+import Login from './components/Login';
 
 const Routes = (props) =>(
     <BrowserRouter>
@@ -22,6 +23,8 @@ const Routes = (props) =>(
             <Route 
                 exact path='/results' 
                 render={(routeProps) => <Results {...routeProps} {...props} />} />
+            <Route 
+                exact path='/login' component={Login} />
             <Route exact path="/admin" 
             render={() => {window.location.href="admin.html"}} />    
         </Switch>
