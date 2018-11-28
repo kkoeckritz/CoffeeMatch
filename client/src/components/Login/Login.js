@@ -5,7 +5,7 @@ class Login extends Component {
   render() {
     return (
         <div className="container style-form">
-             <form action="/login" method="post">
+             <form action="/" method="post">
                 <div className="form-group">
                     <label>Email</label>
                     <input type="text" class="form-control" name="email"/>
