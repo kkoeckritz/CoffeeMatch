@@ -142,9 +142,9 @@ function randColors(num_colors) {
   let colors = [];
 
   for (let i = 0; i < num_colors; i++) {
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
+    let r = Math.floor(Math.random() * 63);
+    let g = 63 + Math.floor(Math.random() * 63);
+    let b = Math.floor(Math.random() * 127);
 
     let color = String("rgb(" + r + "," + g + "," + b + ")");
     colors.push(color);
