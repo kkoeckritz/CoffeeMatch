@@ -1,4 +1,3 @@
-
 /**
  * Updates the CMS Collection Management table with existing collections and
  * available shopify collection.
@@ -75,9 +74,165 @@ function removeCollection() {
     .then(response => updateCollectionManagementTable());
 }
 
+/**
+ * Grab stats data from db
+ * @returns {Promise} 
+ */
+function loadStats() {
+  let raw_stats = [];
+
+  return new Promise((resolve, reject) => {
+    $.get( "/stats", data => {
+      raw_stats = data;
+      
+      if (raw_stats) {
+        console.log(raw_stats);
+        resolve(raw_stats);
+      } else {
+        let errmsg = new Error("Cannot load stats from DB.");
+        reject(errmsg);
+      }
+    })
+  })
+
+}
+
+/**
+ * Parses raw stats data into tallies
+ * @param {object} raw_stats - JSON straight from stats db
+ * @returns {Promise} - counts of unique items in raw_stats
+ */
+function parseStats(raw_stats) {
+  let parsed = {
+    caff: {
+      yes: 0,
+      no: 0
+    },
+    coll: {},
+    flav: {}
+  };
+  
+  for (let i of raw_stats) {
+
+    // check caffeine, collection handle, flavor bucket
+    i.caffeinated ?
+      parsed.caff.yes = (parsed.caff.yes + 1 || 1) :
+      parsed.caff.no = (parsed.caff.no + 1 || 1);
+    parsed.coll[i.collection_handle] = (parsed.coll[i.collection_handle] + 1 || 1);
+    parsed.flav[i.bucket] = (parsed.flav[i.bucket] + 1 || 1);
+  }
+
+  return new Promise((resolve, reject) => {
+    if (raw_stats) {
+      console.log(parsed)
+      resolve(parsed);
+    } else {
+      let errmsg = new Error("No stats available for parsing.");
+      reject(errmsg);
+    }
+  })
+}
+
+/**
+ * Generates random colors
+ * @param {integer} num_colors - number of sets of rgb to generate
+ * @returns {array} - array of rgb objects
+ */
+function randColors(num_colors) {
+  let colors = [];
+
+  for (let i = 0; i < num_colors; i++) {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    let color = String("rgb(" + r + "," + g + "," + b + ")");
+    colors.push(color);
+  }
+
+  return colors;
+}
+
+/**
+ * Render stats charts
+ */
+function drawCharts() {
+  loadStats()
+    .then(raw_stats => {
+      return parseStats(raw_stats);
+    })
+    .then(parsed_stats => {
+      let elem_caff = $("#chart_caff");
+      let elem_coll = $("#chart_coll");
+      let elem_flav = $("#chart_flav");
+
+      // configure caffeine chart
+      let data_caff = {
+        datasets: [{
+            data: [parsed_stats.caff.yes, parsed_stats.caff.no],
+            backgroundColor: randColors(2)
+        }],
+    
+        labels: ["Yes", "No"]
+      };
+
+      var chart_caff = new Chart(elem_caff, {
+        type: 'doughnut',
+        data: data_caff,
+        options: {
+          legend: {
+            position: "bottom"
+          }
+        }
+      });
+
+      // configure collection chart
+      let data_coll = {
+        datasets: [{
+            data: Object.values(parsed_stats.coll),
+            backgroundColor: randColors(Object.keys(parsed_stats.coll).length)
+        }],
+    
+        labels: Object.keys(parsed_stats.coll)
+      };
+
+      var chart_coll = new Chart(elem_coll, {
+        type: 'doughnut',
+        data: data_coll,
+        options: {
+          legend: {
+            position: "bottom"
+          }
+        }
+      });
+
+      // configure flavor chart
+      let data_flav = {
+        datasets: [{
+            data: Object.values(parsed_stats.flav),
+            backgroundColor: randColors(Object.keys(parsed_stats.flav).length)
+        }],
+    
+        labels: Object.keys(parsed_stats.flav)
+      };
+
+      var chart_flav = new Chart(elem_flav, {
+        type: 'doughnut',
+        data: data_flav,
+        options: {
+          legend: {
+            position: "bottom"
+          }
+        }
+      });
+
+    });
+}
+
 $(document).on("click", ".add-collection-button", addCollection);
 $(document).on("click", ".remove-collection-button", removeCollection);
 
 $(document).ready(function() {
   updateCollectionManagementTable();
+  drawCharts();
 });
