@@ -17,33 +17,29 @@ class NavBar extends Component {
          
             <div className="row center">
                 <div className="col s6">
-                    <a href="/login" className="login btn red darken-4">LOGIN</a>
+                    <Link to="/login" className="login btn red darken-4">LOGIN</Link>
                 </div>
                 <div className="col s6">
-                    <a href="/register" className="register btn red darken-4">SIGNUP</a>
+                    <Link to="/register" className="register btn red darken-4">SIGNUP</Link>
                 </div>
             </div>
               
                
               
         )
-        const userLink = (
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link to="/profile" className="nav-link">
-                    User
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-                        Logout
-                    </a>
-                </li>
 
-            </ul>
+        const userLink = (
+            <div className="row center">
+            <div className="col s6">
+                <Link to="/profile" className="login btn red darken-4">USER</Link>
+            </div>
+            <div className="col s6">
+                <a href="/" onClick={this.logOut.bind(this)} className="register btn red darken-4">LOGOUT</a>
+            </div>
+            </div>
         )
     
-        return(
+        return (
             <div className="quest_main">
                     <header className="navbar-fixed">
                         <nav>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
 
 class Profile extends Component {
     constructor() {
@@ -12,26 +12,26 @@ class Profile extends Component {
         }
     }
 
-    componentDidMount() {
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
-        this.setState({
-            first_name: decoded.first_name,
-            last_name: decoded.last_name,
-            email: decoded.email,
-        })
-    }
+    // componentDidMount() {
+    //     const token = localStorage.usertoken
+    //     const decoded = jwt_decode(token)
+    //     this.setState({
+    //         first_name: decoded.first_name,
+    //         last_name: decoded.last_name,
+    //         email: decoded.email,
+    //     })
+    // }
 
-    render(){
+    render() {
         return (
             <div className="container">
-                <ul class="collection with-header">
-        <li class="collection-header"><h3 className="center">Profile</h3></li>
-        <li class="collection-item">{this.state.first_name + " " + this.state.last_name}</li>
-        <li class="collection-item">{this.state.email}</li>
-      </ul>
-            
-
+                {/* <ul className="collection with-header">
+                    <li className="collection-header"><h3 className="center">Profile</h3></li>
+                    <li className="collection-item">{this.state.first_name + " " + this.state.last_name}</li>
+                    <li className="collection-item">{this.state.email}</li>
+                </ul> */}
+                <h1>Welcome</h1>
+        {/* <a href="/admin"><p><i className="material-icons">mode_edit</i>Go to admin</p></a> */}
             </div>
         )
     }

@@ -3,7 +3,11 @@ import ReactGA from 'react-ga';
 import React, { Component } from 'react';
 
 import NavBar from './components/NavBar';
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from './components/Profile';
 // import Footer from './components/Footer';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Routes from './routes';
 
@@ -46,7 +50,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar /> 
+        <Router>
+          <div>
+        <NavBar />
+        <Route 
+            exact path='/login' component={Login} />
+        <Route 
+            exact path='/register' component={Register} />
+        <Route 
+            exact path='/profile' component={Profile} />
+
         <Routes
           choices={this.state.choices}
           info={this.state.choices}
@@ -58,6 +71,8 @@ class App extends Component {
           tag={this.state.tag}
           setTag={this.setTag}
         />
+            </div>
+        </Router>
      
         {/* <Footer /> */}
        

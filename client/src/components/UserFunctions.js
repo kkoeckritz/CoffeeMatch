@@ -12,9 +12,7 @@ export const register = newUser => {
     .then(res => {
         console.log('Registered!')
     })
-    .catch(err => {
-        console.log(err)
-    })
+
 }
 
 export const login = user => {
