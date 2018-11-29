@@ -1,39 +1,84 @@
 import "./NavBar.css";
-import React from "react";
+import React, { Component } from 'react';
+import { BrowserRouter, Link, Switch, withRouter } from 'react-router-dom';
 import small_logo from "./SW_1.png";
 
-const NavBar = props => 
+class NavBar extends Component {
+    
+    // logout
+    logOut(e){
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push('/')
+    }
 
-    <div className="quest_main">
-        <header className="navbar-fixed">
-            <nav>
-                <div className="nav-wrapper red darken-4">
-                    
-                    <div className="container">
-                        <div className="row">
-                            <div className="col s6 left">                            
-                                <a href="https://www.soulworkcoffee.com/" 
-                                   target="_blank" 
-                                   rel="noopener noreferrer" 
-                                   id="nav_name" 
-                                   className="brand-logo tooltipped" 
-                                   data-position="bottom" 
-                                   data-tooltip="Home">
-                                <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
-                                </a>
-                                </div>
-                                <div className="col s6">
-                                <a href="/" className="big_letter fancy_letter right">SoulMate</a>
-                                </div>
-                           
-                        </div>
-                    </div>
-                    
+    render() {
+        const loginRegLink = (
+         
+            <div className="row center">
+                <div className="col s6">
+                    <a href="/login" className="login btn red darken-4">LOGIN</a>
                 </div>
-            </nav>		
-        </header>
-    </div>
-        
-  
+                <div className="col s6">
+                    <a href="/register" className="register btn red darken-4">SIGNUP</a>
+                </div>
+            </div>
+              
+               
+              
+        )
+        const userLink = (
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link to="/profile" className="nav-link">
+                    User
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                        Logout
+                    </a>
+                </li>
 
-export default NavBar;
+            </ul>
+        )
+    
+        return(
+            <div className="quest_main">
+                    <header className="navbar-fixed">
+                        <nav>
+                            <div className="nav-wrapper red darken-4">
+                                
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col s4 left">                            
+                                            <a href="https://www.soulworkcoffee.com/" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            id="nav_name" 
+                                            className="brand-logo tooltipped" 
+                                            data-position="bottom" 
+                                            data-tooltip="Home">
+                                            <img className="logo" src={small_logo} alt="Soul Work Coffee"/>
+                                            </a>
+                                            </div>
+                                        <div className="col s4 center">
+                                            {localStorage.usertoken ? userLink : loginRegLink}
+                                        </div>
+                                        <div className="col s4 right">
+                                            <a href="/" className="big_letter fancy_letter right">SoulMate</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </nav>		
+                    </header>
+                </div>
+        )
+ 
+}
+    
+}
+
+export default withRouter(NavBar);

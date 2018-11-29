@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
 import './GetStarted.css';
 import { BrowserRouter, Link, Switch } from 'react-router-dom';
 

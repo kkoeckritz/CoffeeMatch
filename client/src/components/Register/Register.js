@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './Login.css';
-import {login} from '../UserFunctions'
+import './Register.css';
+import { register } from '../UserFunctions'
 
-class Login extends Component {
+class Register extends Component {
     constructor() {
         super()
         this.state = {
+            first_name: '',
+            last_name: '',
             email: '',
             password: '',
         }
@@ -19,13 +21,14 @@ class Login extends Component {
         e.preventDefault()
 
         const user = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
             email: this.state.email,
             password: this.state.password
         }
-        login(user).then(res => {
-            if (res) {
-                this.props.history.push('/profile')
-            }
+        register(user).then(res => {
+                this.props.history.push('/login')
+            
         })
     }
 
@@ -33,6 +36,24 @@ class Login extends Component {
     return (
         <div className="container style-form">
              <form noValidate onSubmit = {this.onSubmit}>
+             <div className="form-group">
+                    <label htmlFor="first_name">First Name</label>
+                    <input type="text" 
+                    className="form-control" 
+                    name="first_name" 
+                    placeholder="Enter First Name" 
+                    value={this.state.first_name} 
+                    onChange={this.onChange}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="last_name">Last Name</label>
+                    <input type="text" 
+                    className="form-control" 
+                    name="last_name" 
+                    placeholder="Enter Last Name" 
+                    value={this.state.last_name} 
+                    onChange={this.onChange}/>
+                </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input type="email" 
@@ -53,7 +74,7 @@ class Login extends Component {
                 </div>
                 <br/>   
                 <button type="submit" 
-                className="btn waves-effect waves-light red darken-2 btn-lg btn-block">Login</button>
+                className="btn waves-effect waves-light red darken-2 btn-lg btn-block">Register</button>
             </form>
 
 
@@ -67,4 +88,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register;

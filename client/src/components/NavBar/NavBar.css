@@ -19,6 +19,26 @@ nav {
     
 }
 
+.login,
+.register {
+
+    /* font-family: 'Kaushan Script', cursive; */
+    font-size: 16px;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+    box-shadow: none;
+    padding-top: 18px;
+}
+
+.login:hover,
+.register:hover {
+    -webkit-box-shadow: 1 1px #e53935;
+	-moz-box-shadow: 1 1px #e53935;
+    box-shadow: 1 1px #e53935;
+    height: 100px;
+
+
+}
 
 /* @media screen and (max-width: 550px) {
 	.big_letter {
@@ -41,6 +61,27 @@ nav {
         width: 90%;
         padding: 10px;
     }
+    .login,
+    .register {
+        position: relative;
+        left: 100px;
+        /* font-family: 'Kaushan Script', cursive; */
+        font-size: 14px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        padding-top: 65px;
+        
+    }
+    .login:hover,
+    .register:hover {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+
+    }
+
 }
 
 /* @media screen and (max-width: 370px) {
