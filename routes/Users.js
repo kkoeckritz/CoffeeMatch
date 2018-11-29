@@ -3,7 +3,6 @@ const users = express.Router()
 const cors = require("cors")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
-
 const User = require("../models/User")
 users.use(cors())
 
@@ -28,7 +27,7 @@ users.post('/register', (req, res) => {
                 userData.password = hash
                 User.create(userData)
                 .then(user => {
-                    res.json({status: user.email + 'registered!'})
+                    res.json({status: user.email + ' registered!'})
                 })
                 .catch(err => {
                     res.send('error: ' + err)

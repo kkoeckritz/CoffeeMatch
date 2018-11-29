@@ -5,11 +5,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   first_name: {
     type: String,
-    required: true
   },
   last_name: {
     type: String,
-    required: true
   },
   email: {
     type: String,
@@ -19,11 +17,15 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  admin: {
+    type: Boolean
+  },
   date: {
     type: Date,
     default: Date.now
   }
 });
 
+const User = mongoose.model("users", UserSchema);
 
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = User

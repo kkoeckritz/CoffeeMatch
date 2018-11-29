@@ -6,19 +6,23 @@ const routes = require("./routes");
 const app = express();
 const passport = require("passport");
 const cors = require("cors");
-// const bodyParser = require("body-parser")
-// const users = require("./routes/api/users");
+const bodyParser = require("body-parser")
 
 const PORT = process.env.PORT || 3001;
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+
+// Define middleware here
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// app.use(express.static(__dirname + './build'));
+
 // Add routes, both API and view
 app.use(routes);
 
