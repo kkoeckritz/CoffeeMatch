@@ -25,6 +25,8 @@ class App extends Component {
       collectionHandle: "none",
       tag: "none"
     }
+
+    // initialize Google Analytics
     ReactGA.initialize('UA-129570756-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
   }

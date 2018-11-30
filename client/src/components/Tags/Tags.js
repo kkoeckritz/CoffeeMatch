@@ -30,7 +30,7 @@ class Tags extends Component {
             >
                 <img src={tag.url} alt={tag.name} />
                 <figcaption>
-                  <h2 class="tag">{tag.name}</h2>
+                  <h2 className="tag">{tag.name}</h2>
                   {/* <p></p> */}
                   {/* <a href="/decaf">{collection.name}</a> */}
                 </figcaption>
@@ -57,7 +57,7 @@ class Tags extends Component {
                 onClick={() => this.props.history.goBack()} className="back"
               >
                 <h2>Go Back</h2>
-                <p><i class="large material-icons">arrow_back</i></p>
+                <p><i className="large material-icons">arrow_back</i></p>
               </figcaption>
             </figure>
 

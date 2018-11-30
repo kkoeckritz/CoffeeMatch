@@ -24,9 +24,11 @@ class Results extends Component {
             >
               <img src={product.image} alt={product.name} />
               <figcaption>
-                <h2 class="result">{product.name}</h2>
+                <h2 className="result">{product.name}</h2>
                 {/* <p>{this.state.info[0]}</p> */}
-                <a href={product.url} target="_blank">{product.name}</a>
+                <a href={product.url} 
+                   target="_blank"
+                   rel="noopener noreferrer">{product.name}</a>
               </figcaption>
             </figure>
           )
@@ -51,7 +53,7 @@ class Results extends Component {
                 onClick={() => this.props.history.goBack()} className="back"
               >
                 <h2>Go Back</h2>
-                <p><i class="large material-icons">arrow_back</i></p>
+                <p><i className="large material-icons">arrow_back</i></p>
               </figcaption>
             </figure>
           </div>

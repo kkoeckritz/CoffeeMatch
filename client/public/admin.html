@@ -1,107 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="https://cdn.shopify.com/s/files/1/2292/9477/files/Soul_Work_Logo_Final_9-29_Color_32x32.png?v=1511642030">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+	
+	<!--Import icons, fonts, Materialize style-->
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/admin.css">
+	
+	<title>Soul Work SoulMate - Admin</title>
+</head>
+<body>
+	
+	<main>	
+		<nav class="nav-extended red darken-2">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo"><img class ="logo" src="./assets/images/SW_1.png"></a>
+			</div>
+			
+			<div class="nav-content grey darken-3">
+				<ul class="tabs tabs-transparent">
+					<li class="tab"><a href="#test1">Statistics</a></li>
+					<li class="tab"><a href="#test2">Users</a></li>
+					<li class="tab"><a href="#test3">Questions</a></li>
+					<li class="tab"><a href="#test4">Images</a></li>
+					<li class="tab"><a href="#test5">Collections</a></li>
+				</ul>
+			</div>
+		</nav>
 
-    <!--Import icons, fonts, Materialize style-->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.css">
+		<br/>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/admin.css">
-    
-    <title>Soul Work SoulMate - Admin</title>
-  </head>
-  <body>
-      <main>
+		<div class="container">
+			<div id="test1" class="col s12">
+				<h2>Quiz Statistics</h2>
+				<br>
+				<div class="row">
+					<div class="col s4 center stats_title">
+						Caffeine
+						<canvas id="chart_caff" width="400" height="400"></canvas>
+					</div>
+					<div class="col s4 center stats_title">
+						Collections
+						<canvas id="chart_coll" width="400" height="400"></canvas>
+					</div>
+					<div class="col s4 center stats_title">
+						Flavors
+						<canvas id="chart_flav" width="400" height="400"></canvas>
+					</div>
+				</div>
+			</div>
+			<div id="test2" class="col s12">Test 2</div>
+			<div id="test3" class="col s12">Test 3</div>
+			<div id="test4" class="col s12">Test 4</div>
+			<div id="test5" class="col s12">
+				<h2>Edit Collections</h2>
+				<br>
+				<table id="enabled-collections-table">
+					<thead>
+						<th>Enabled Collections</th>
+						<th>Remove</th>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<br />
+				<table id="available-collections-table">
+					<thead>
+						<th>Available Collections</th>
+						<th>Add</th>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</main>
 
-    <nav class="nav-extended red darken-2">
-        <div class="nav-wrapper container-fluid">
-          <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo"><img class ="logo" src="./assets/images/SW_1.png"></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Admin</a></li>
-            <li><a href="badges.html">Setting</a></li>
-      
-          </ul>
-        </div>
-    
-        <div class="nav-content grey darken-3">
-          <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#test1">Dashboard</a></li>
-            <li class="tab"><a class="active" href="#test2">Users</a></li>
-            <li class="tab"><a href="#test3">Questions</a></li>
-            <li class="tab"><a href="#test4">Images</a></li>
-            <li class="tab"><a href="#test5">Collections</a></li>
-          </ul>
-        </div>
-      </nav>
-    <br/>
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Admin</a></li>
-        <li><a href="badges.html">Edit</a></li>
-        <li><a href="collapsible.html">logout</a></li>
-      </ul>
-      <div class="container">
-      <div id="test1" class="col s12">
-            Some stuff
-      </div>
-      <div id="test2" class="col s12">Test 2</div>
-      <div id="test3" class="col s12">Test 3</div>
-      <div id="test4" class="col s12">
-          <input id="file" type="file" multiple />
-          <button onClick="go()">Go</button>
-          <div id="output"></div>
-      </div>
-      <div id="test5" class="col s12">
-        <table id="enabled-collections-table">
-          <thead>
-            <th>Enabled Collections</th>
-            <th>Remove</th>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <br />
-        <table id="available-collections-table">
-          <thead>
-            <th>Available Collections</th>
-            <th>Add</th>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    
-      <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">mode_edit</i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
-      </div>
-      </main>
-
-
-      <ul id="slide-out" class="sidenav sidenav-fixed white">
-            <li><a href="#!"><i class="small material-icons">account_circle</i></a></li>
-            <li><a href="#!"><i class="small material-icons">settings</i></a></li>
-            <li><a href="#!"><i class="small material-icons">insert_chart</i></a></li>
-            <li><a href="#!"><i class="small material-icons">cloud_upload</i></a></li>
-          </ul>
-
-  </body>
+	<!-- link js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.js"></script>
+	<script type="text/javascript" src="./assets/js/Chart.min.js"></script>
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/admin.js"></script>
+</body>
 </html>
+	

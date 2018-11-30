@@ -1,26 +1,22 @@
 .logo {
-    width: 50%;
-    padding: 17px;
+	width: 50%;
+	padding: 17px;
 }
 
-header, main, footer {
-    padding-left: 95px;
-  }
+.stats_title {
+	font-weight: bold;
+}
 
-  .sidenav {
-      width: 95px;
-  }
+/* .container {
+	width: 95%;
+}   */
 
-  .container {
-      width: 95%;
-  }  
-
-  @media only screen and (max-width : 992px) {
-    header, main, footer {
-      padding-left: 0;
-
-    }
-    .brand-logo {
-        text-align: center;
-    }
-  }
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+		
+	}
+	.brand-logo {
+		text-align: center;
+	}
+}

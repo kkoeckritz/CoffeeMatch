@@ -51,12 +51,12 @@ class Caffeine extends Component {
             {this.state.collections}
 
             <figure className="effect-bubba z-depth-3">
-              <img class="" src="./assets/images/coffee-in-sun.jpg" alt="" />
+              <img className="" src="./assets/images/coffee-in-sun.jpg" alt="" />
               <figcaption
                 onClick={() => this.props.history.goBack()} className="back"
               >
                 <h2>Go Back</h2>
-                <p><i class="large material-icons">arrow_back</i></p>
+                <p><i className="large material-icons">arrow_back</i></p>
               </figcaption>
             </figure>
           </div>
